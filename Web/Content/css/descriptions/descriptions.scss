@@ -1,0 +1,37 @@
+﻿//colors
+$red: #f33;
+$green: #16ad97;
+$gray: #999;
+$gray2: #898989;
+$gray3: #838383;
+$blue: #2288FF;
+$orange: #FF7D22;
+$white: #ffffff;
+$black: #000000;
+
+$border-color: #EBEBEB;
+$border-color2: #90a4ae;
+
+$border-color-error: #ff545b;
+$text-color-error: #fe2929;
+
+$link-color: $blue /*$red*/;
+$link-hover: $blue;
+
+//paths
+$img: '/content/img';
+$fonts: '/content/fonts';
+
+//sizes
+$font-size: 1.3rem;
+$header-height: 6.8rem;
+$footer-height: 6rem;
+
+// icons
+$rub: "\e900";
+
+@mixin transition($prop: all, $duration: .3s, $function: ease, $delay: 0s) {
+    -webkit-transition: $prop $duration $function $delay;
+    -moz-transition: $prop $duration $function $delay;
+    transition: $prop $duration $function $delay;
+}
