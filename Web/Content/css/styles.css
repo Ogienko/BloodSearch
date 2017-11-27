@@ -1,4 +1,169 @@
 ﻿/*$red*/
+/*@mixin transition($prop: all, $duration: .3s, $function: ease, $delay: 0s) {
+    -webkit-transition: $prop $duration $function $delay;
+    -moz-transition: $prop $duration $function $delay;
+    transition: $prop $duration $function $delay;
+}*/
+/*
+    .transition(@prop: all, @duration: .3s, @function: ease, @delay: 0s){
+  -webkit-transition: @arguments;
+     -moz-transition: @arguments;
+          transition: @arguments;
+}
+*/
+/*$red*/
+/*@mixin transition($prop: all, $duration: .3s, $function: ease, $delay: 0s) {
+    -webkit-transition: $prop $duration $function $delay;
+    -moz-transition: $prop $duration $function $delay;
+    transition: $prop $duration $function $delay;
+}*/
+/*
+    .transition(@prop: all, @duration: .3s, @function: ease, @delay: 0s){
+  -webkit-transition: @arguments;
+     -moz-transition: @arguments;
+          transition: @arguments;
+}
+*/
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-Medium.eot");
+  src: local("DIN Pro Medium"), local("DINPro-Medium"), url("DINPro-Medium.eot?#iefix") format("embedded-opentype"), url("DINPro-Medium.woff") format("woff"), url("DINPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-BlackItalic.eot");
+  src: local("DIN Pro Black Italic"), local("DINPro-BlackItalic"), url("DINPro-BlackItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-BlackItalic.woff") format("woff"), url("DINPro-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedBlackItalic.eot");
+  src: local("DIN Pro Condensed Black Italic"), local("DINPro-CondensedBlackItalic"), url("DINPro-CondensedBlackItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedBlackItalic.woff") format("woff"), url("DINPro-CondensedBlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedMedium.eot");
+  src: local("DIN Pro Condensed Medium"), local("DINPro-CondensedMedium"), url("DINPro-CondensedMedium.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedMedium.woff") format("woff"), url("DINPro-CondensedMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-MediumItalic.eot");
+  src: local("DIN Pro Medium Italic"), local("DINPro-MediumItalic"), url("DINPro-MediumItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-MediumItalic.woff") format("woff"), url("DINPro-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-Bold.eot");
+  src: local("DIN Pro Bold"), local("DINPro-Bold"), url("DINPro-Bold.eot?#iefix") format("embedded-opentype"), url("DINPro-Bold.woff") format("woff"), url("DINPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-Light.eot");
+  src: local("DIN Pro Light"), local("DINPro-Light"), url("DINPro-Light.eot?#iefix") format("embedded-opentype"), url("DINPro-Light.woff") format("woff"), url("DINPro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedMediumItalic.eot");
+  src: local("DIN Pro Condensed Medium Italic"), local("DINPro-CondensedMediumItalic"), url("DINPro-CondensedMediumItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedMediumItalic.woff") format("woff"), url("DINPro-CondensedMediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-Italic.eot");
+  src: local("DIN Pro Italic"), local("DINPro-Italic"), url("DINPro-Italic.eot?#iefix") format("embedded-opentype"), url("DINPro-Italic.woff") format("woff"), url("DINPro-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro.eot");
+  src: local("DIN Pro"), local("DINPro"), url("DINPro.eot?#iefix") format("embedded-opentype"), url("DINPro.woff") format("woff"), url("DINPro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedBlack.eot");
+  src: local("DIN Pro Condensed Black"), local("DINPro-CondensedBlack"), url("DINPro-CondensedBlack.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedBlack.woff") format("woff"), url("DINPro-CondensedBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedBold.eot");
+  src: local("DIN Pro Condensed Bold"), local("DINPro-CondensedBold"), url("DINPro-CondensedBold.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedBold.woff") format("woff"), url("DINPro-CondensedBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-Black.eot");
+  src: local("DIN Pro Black"), local("DINPro-Black"), url("DINPro-Black.eot?#iefix") format("embedded-opentype"), url("DINPro-Black.woff") format("woff"), url("DINPro-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-LightItalic.eot");
+  src: local("DIN Pro Light Italic"), local("DINPro-LightItalic"), url("DINPro-LightItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-LightItalic.woff") format("woff"), url("DINPro-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedBoldItalic.eot");
+  src: local("DIN Pro Condensed Bold Italic"), local("DINPro-CondensedBoldItalic"), url("DINPro-CondensedBoldItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedBoldItalic.woff") format("woff"), url("DINPro-CondensedBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedRegular.eot");
+  src: local("DIN Pro Condensed Regular"), local("DINPro-CondensedRegular"), url("DINPro-CondensedRegular.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedRegular.woff") format("woff"), url("DINPro-CondensedRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedItalic.eot");
+  src: local("DIN Pro Condensed Italic"), local("DINPro-CondensedItalic"), url("DINPro-CondensedItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedItalic.woff") format("woff"), url("DINPro-CondensedItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedLightItalic.eot");
+  src: local("DIN Pro Condensed Light Italic"), local("DINPro-CondensedLightItalic"), url("DINPro-CondensedLightItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedLightItalic.woff") format("woff"), url("DINPro-CondensedLightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DIN Pro Cond';
+  src: url("DINPro-CondensedLight.eot");
+  src: local("DIN Pro Condensed Light"), local("DINPro-CondensedLight"), url("DINPro-CondensedLight.eot?#iefix") format("embedded-opentype"), url("DINPro-CondensedLight.woff") format("woff"), url("DINPro-CondensedLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url("DINPro-BoldItalic.eot");
+  src: local("DIN Pro Bold Italic"), local("DINPro-BoldItalic"), url("DINPro-BoldItalic.eot?#iefix") format("embedded-opentype"), url("DINPro-BoldItalic.woff") format("woff"), url("DINPro-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote,
 th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, summary, time,
 mark, audio, video {
@@ -144,7 +309,7 @@ body, html {
 body {
   font-size: 1.3rem;
   -webkit-text-size-adjust: 100%;
-  font-family: PTSansRegular,'ProximaNova', sans-serif;
+  font-family: PTSansRegular,'DIN Pro', sans-serif;
   background: #f0f0f0;
   color: #333;
   min-width: 120rem; }
@@ -242,6 +407,83 @@ a {
   background: #fff;
   border-radius: 0.2rem; }
 
-/*@import "blocks/blocks";
-@import "pages/pages";*/
+.footer {
+  margin: 0 auto;
+  padding: 0 6.4rem; }
+
+.main-page__content {
+  max-width: 128rem;
+  min-width: 120rem;
+  margin: 0 auto;
+  padding: 0 6.4rem; }
+
+.main-footer {
+  flex: 0 0 auto;
+  background: #fff;
+  font-size: 1.5rem; }
+  .main-footer__content {
+    height: 6rem;
+    display: flex;
+    align-items: center; }
+
+.main-page-footer {
+  background: #151b23;
+  color: #fff;
+  font-size: 1.6rem; }
+  .main-page-footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.6rem 0; }
+  .main-page-footer__col {
+    display: flex; }
+    .main-page-footer__col:first-child p + p {
+      margin-left: 5rem; }
+  .main-page-footer__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 740px; }
+  .main-page-footer__nav-item {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer; }
+  .main-page-footer__relinks {
+    align-items: center;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-decoration: none;
+    width: 300px;
+    text-decoration: none;
+    overflow: hidden; }
+    .main-page-footer__relinks a {
+      color: #969696 !important; }
+  .main-page-footer__copyright {
+    display: flex;
+    flex-direction: column; }
+  .main-page-footer__copyright-item {
+    line-height: 2.6rem; }
+  .main-page-footer__copyright-company {
+    display: flex; }
+  .main-page-footer__copyright-company-name {
+    position: relative;
+    margin-right: 0.5rem;
+    top: 0.5rem; }
+  .main-page-footer__contacts {
+    line-height: 2.6rem;
+    text-align: right; }
+  .main-page-footer a {
+    text-decoration: none;
+    color: #fff; }
+    .main-page-footer a:hover {
+      color: #fff; }
+
+@media (max-width: 1160px) {
+  .main-page-footer__col:first-child p + p {
+    margin-left: 4rem; }
+  .main-page-footer__nav {
+    margin-right: 4rem; } }
+
+/*@import "pages/pages";*/
 

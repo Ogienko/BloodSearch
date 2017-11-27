@@ -30,8 +30,83 @@ $footer-height: 6rem;
 // icons
 $rub: "\e900";
 
+/*@mixin transition($prop: all, $duration: .3s, $function: ease, $delay: 0s) {
+    -webkit-transition: $prop $duration $function $delay;
+    -moz-transition: $prop $duration $function $delay;
+    transition: $prop $duration $function $delay;
+}*/
+
+@mixin shadow() {
+    box-shadow: 0 .2rem .4rem rgba(0, 0, 0, .15);
+}
+
+@mixin square($num) {
+    width: $num / 10 + 0rem;
+    height: $num / 10 + 0rem;
+}
+
+@mixin circle($num) {
+    @include square ($num);
+    border-radius: 100%;
+}
+
+/*
+    .transition(@prop: all, @duration: .3s, @function: ease, @delay: 0s){
+  -webkit-transition: @arguments;
+     -moz-transition: @arguments;
+          transition: @arguments;
+}
+*/
+
 @mixin transition($prop: all, $duration: .3s, $function: ease, $delay: 0s) {
     -webkit-transition: $prop $duration $function $delay;
     -moz-transition: $prop $duration $function $delay;
     transition: $prop $duration $function $delay;
+}
+
+@mixin transform($arguments) {
+    -webkit-transform: $arguments;
+    -moz-transform: $arguments;
+    transform: $arguments;
+}
+
+@mixin animation($parameters) {
+    -webkit-animation: $parameters;
+    -moz-animation: $parameters;
+    animation: $parameters;
+}
+
+@mixin offset($x: -50%, $y: -50%) {
+    transform: translate($x, $y);
+}
+
+@mixin offsetX($x: -50%) {
+    transform: translateX($x);
+}
+
+@mixin offsetY($y: -50%) {
+    transform: translateY($y);
+}
+
+@mixin noOffset() {
+    @include offset(0, 0);
+}
+
+@mixin placeholder($color) {
+
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
 }

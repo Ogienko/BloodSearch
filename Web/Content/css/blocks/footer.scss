@@ -1,0 +1,123 @@
+﻿.footer {
+    margin: 0 auto;
+    padding: 0 6.4rem;
+}
+
+.main-page__content {
+    max-width: 128rem;
+    min-width: 120rem;
+    margin: 0 auto;
+    padding: 0 6.4rem;
+}
+
+.main-footer {
+    flex: 0 0 auto;
+    background: #fff;
+    font-size: 1.5rem;
+
+    &__content {
+        height: $footer-height;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.main-page-footer {
+    background: #151b23;
+    color: #fff;
+    font-size: 1.6rem;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        white-space: nowrap;
+        padding: 0.6rem 0;
+    }
+
+    &__col {
+        display: flex;
+
+        &:first-child {
+            p + p {
+                margin-left: 5rem;
+            }
+        }
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-width: 740px;
+    }
+
+    &__nav-item {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &__relinks {
+        align-items: center;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        text-decoration: none;
+        width: 300px;
+        text-decoration: none;
+        overflow: hidden;
+
+        a {
+            color: #969696 !important
+        }
+    }
+
+    &__copyright {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__copyright-item {
+        line-height: 2.6rem;
+    }
+
+    &__copyright-company {
+        display: flex;
+    }
+
+    &__copyright-company-name {
+        position: relative;
+        margin-right: 0.5rem;
+        top: 0.5rem;
+    }
+
+    &__contacts {
+        line-height: 2.6rem;
+        text-align: right;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+@media (max-width: 1160px) {
+    .main-page-footer {
+        &__col {
+            &:first-child {
+                p + p {
+                    margin-left: 4rem;
+                }
+            }
+        }
+
+        &__nav {
+            margin-right: 4rem;
+        }
+    }
+}
