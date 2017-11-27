@@ -407,49 +407,37 @@ a {
   background: #fff;
   border-radius: 0.2rem; }
 
-.footer {
-  margin: 0 auto;
-  padding: 0 6.4rem; }
-
 .main-page__content {
   max-width: 128rem;
   min-width: 120rem;
   margin: 0 auto;
   padding: 0 6.4rem; }
 
-.main-footer {
-  flex: 0 0 auto;
-  background: #fff;
-  font-size: 1.5rem; }
-  .main-footer__content {
-    height: 6rem;
-    display: flex;
-    align-items: center; }
-
-.main-page-footer {
+.footer {
   background: #151b23;
   color: #fff;
-  font-size: 1.6rem; }
-  .main-page-footer__content {
+  font-size: 1.6rem;
+  flex: 0 0 auto; }
+  .footer__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     white-space: nowrap;
     padding: 0.6rem 0; }
-  .main-page-footer__col {
+  .footer__col {
     display: flex; }
-    .main-page-footer__col:first-child p + p {
+    .footer__col:first-child p + p {
       margin-left: 5rem; }
-  .main-page-footer__nav {
+  .footer__nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-width: 740px; }
-  .main-page-footer__nav-item {
+  .footer__nav-item {
     color: #fff;
     text-decoration: none;
     cursor: pointer; }
-  .main-page-footer__relinks {
+  .footer__relinks {
     align-items: center;
     font-size: 1.3rem;
     line-height: 2rem;
@@ -457,32 +445,32 @@ a {
     width: 300px;
     text-decoration: none;
     overflow: hidden; }
-    .main-page-footer__relinks a {
+    .footer__relinks a {
       color: #969696 !important; }
-  .main-page-footer__copyright {
+  .footer__copyright {
     display: flex;
     flex-direction: column; }
-  .main-page-footer__copyright-item {
+  .footer__copyright-item {
     line-height: 2.6rem; }
-  .main-page-footer__copyright-company {
+  .footer__copyright-company {
     display: flex; }
-  .main-page-footer__copyright-company-name {
+  .footer__copyright-company-name {
     position: relative;
     margin-right: 0.5rem;
     top: 0.5rem; }
-  .main-page-footer__contacts {
+  .footer__contacts {
     line-height: 2.6rem;
     text-align: right; }
-  .main-page-footer a {
+  .footer a {
     text-decoration: none;
     color: #fff; }
-    .main-page-footer a:hover {
+    .footer a:hover {
       color: #fff; }
 
 @media (max-width: 1160px) {
-  .main-page-footer__col:first-child p + p {
+  .footer__col:first-child p + p {
     margin-left: 4rem; }
-  .main-page-footer__nav {
+  .footer__nav {
     margin-right: 4rem; } }
 
 /*@import "pages/pages";*/

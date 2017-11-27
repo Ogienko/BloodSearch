@@ -1,31 +1,15 @@
-﻿.footer {
-    margin: 0 auto;
-    padding: 0 6.4rem;
-}
-
-.main-page__content {
+﻿.main-page__content {
     max-width: 128rem;
     min-width: 120rem;
     margin: 0 auto;
     padding: 0 6.4rem;
 }
 
-.main-footer {
-    flex: 0 0 auto;
-    background: #fff;
-    font-size: 1.5rem;
-
-    &__content {
-        height: $footer-height;
-        display: flex;
-        align-items: center;
-    }
-}
-
-.main-page-footer {
+.footer {
     background: #151b23;
     color: #fff;
     font-size: 1.6rem;
+    flex: 0 0 auto;
 
     &__content {
         display: flex;
@@ -107,7 +91,7 @@
 }
 
 @media (max-width: 1160px) {
-    .main-page-footer {
+    .footer {
         &__col {
             &:first-child {
                 p + p {
