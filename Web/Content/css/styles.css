@@ -217,7 +217,7 @@ textarea {
   -webkit-appearance: none; }
 
 .red {
-  color: #f33 !important; }
+  color: #ee2d24 !important; }
 
 .gray {
   color: #999 !important; }
@@ -511,7 +511,7 @@ a {
     text-decoration: none;
     border-bottom: .3rem solid transparent; }
     .main-menu__item.active {
-      border-color: #16ad97;
+      border-color: #ee2d24;
       cursor: default; }
     .main-menu__item:hover {
       color: inherit; }
@@ -522,7 +522,7 @@ a {
   margin-left: 3.5rem;
   font-size: 1.6rem;
   text-decoration: none;
-  color: #16ad97;
+  color: #ee2d24;
   font-weight: bold; }
   .header-nav__item_create-ad {
     display: inline-block;
@@ -535,16 +535,13 @@ a {
       top: -0.4rem;
       display: block;
       font-size: 2.4rem;
-      color: #16ad97; }
+      color: #ee2d24; }
   .header-nav__item:hover {
-    color: #16ad97; }
-
-.frame {
-  background: #fff;
-  border-radius: 0.2rem; }
+    color: #ee2d24 #ee2d24; }
 
 .shadow {
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15); }
 
-/*@import "pages/pages";*/
+.search {
+  margin-bottom: 2rem; }
 

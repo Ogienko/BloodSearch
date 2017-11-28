@@ -3,7 +3,7 @@
         margin-left: 3.5rem;
         font-size: 1.6rem;
         text-decoration: none;
-        color: $green;
+        color: $red;
         font-weight: bold;
 
         &_create-ad {
@@ -18,12 +18,12 @@
                 top: -0.4rem;
                 display: block;
                 font-size: 2.4rem;
-                color: $green;
+                color: $red;
             }
         }
 
         &:hover {
-            color: $green;
+            color: $red$red;
         }
     }
 }
