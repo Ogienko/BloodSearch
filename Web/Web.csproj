@@ -17,7 +17,7 @@
     <AssemblyName>Web</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -239,6 +239,12 @@
     <Content Include="Content\fonts\DINPro\DINPro.woff" />
     <Content Include="Content\css\blocks\footer.scss" />
     <Content Include="Content\css\blocks\blocks.scss" />
+    <Content Include="Content\css\blocks\header\header.scss" />
+    <Content Include="Content\css\blocks\header\header-nav.scss" />
+    <Content Include="Content\css\blocks\header\logo.scss" />
+    <Content Include="Content\css\blocks\header\main-header.scss" />
+    <Content Include="Content\css\blocks\header\main-menu.scss" />
+    <Content Include="Content\css\blocks\page.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -266,6 +272,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\MainPage\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,7 +310,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63817</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63817/</IISUrl>
+          <IISUrl>http://bloodsearch.local</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
