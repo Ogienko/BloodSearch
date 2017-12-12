@@ -11,9 +11,32 @@ namespace Web {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "MainPage",
+                url: "",
+                defaults: new {
+                    controller = "MainPage",
+                    action = "Index",
+                    httpMethod = new HttpMethodConstraint("GET") }
+            );
+
+            routes.MapRoute(
+                name: "Registration",
+                url: "registration/",
+                defaults: new {
+                    controller = "Account",
+                    action = "Registration",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
+            );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "login/",
+                defaults: new {
+                    controller = "Account",
+                    action = "Login",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
             );
         }
     }

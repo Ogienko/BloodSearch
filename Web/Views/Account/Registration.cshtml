@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+    @Html.Partial("_Header")
+    <main>
+        <div class="wrap">
+            <div class="frame shadow">
+                <div class="form-add-item-group">
+
+                    <h1 class="form-title">Регистрация</h1>
+
+                    <div class="form-add-item-group__item">
+                        <div class="form-add-item-group__title-container">
+
+                            <p class="form-add-item-group__title">E-mail</p>
+                        </div>
+                        <div class="form-add-item-group__control-container">
+                            <input type="text" class="field input" placeholder="E-mail" name="email">
+                            <div class="validationMessage"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-add-item-group__item">
+                        <div class="form-add-item-group__title-container">
+                            <p class="form-add-item-group__title">Пароль</p>
+                        </div>
+                        <div class="form-add-item-group__control-container">
+                            <input type="password" class="field input" placeholder="Пароль" name="password" >
+                            <div class="validationMessage"></div>
+                        </div>
+                    </div>
+                    <div class="form-add-item-group__item">
+                        <div class="form-add-item-group__title-container">
+                            <p class="form-add-item-group__title">Подтверждение пароля</p>
+                        </div>
+                        <div class="form-add-item-group__control-container">
+                            <input type="password" class="field input" placeholder="Пароль" name="confirmPassword">
+                            <div class="validationMessage"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-add-item-group__item">
+                        <div class="form-add-item-group__title-container">
+                            <p class="form-add-item-group__title"></p>
+                        </div>
+                        <div class="form-add-item-group__control-container">
+                            <button class="btn btn--white main-filters__show-offers-btn btn--blue">Зарегистрировать</button>
+                        </div>
+                    </div>
+
+                    <div class="form-add-item-group__item">
+                        <div class="form-add-item-group__title-container">
+                            <p class="form-add-item-group__title"></p>
+                        </div>
+                        <div class="form-add-item-group__control-container">
+                            <a class="link--blue" href="/login/">Войти</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    @Html.Partial("_Footer")
+</body>
+</html>

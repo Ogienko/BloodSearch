@@ -416,7 +416,10 @@ a {
 .footer {
   background: #151b23;
   color: #fff;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0; }
   .footer__content {
     display: flex;
     justify-content: space-between;
@@ -494,7 +497,7 @@ a {
       .main-header__item .logo img {
         display: inline-block;
         vertical-align: middle;
-        width: 131px; }
+        width: 60px; }
 
 .logo {
   position: relative;
