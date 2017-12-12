@@ -20,6 +20,16 @@ namespace Web {
             );
 
             routes.MapRoute(
+                name: "Search",
+                url: "search/",
+                defaults: new {
+                    controller = "Search",
+                    action = "Index",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
+            );
+
+            routes.MapRoute(
                 name: "Registration",
                 url: "registration/",
                 defaults: new {
