@@ -251,6 +251,7 @@
     <Content Include="Content\css\blocks\forms\forms.scss" />
     <Content Include="Content\css\blocks\forms\buttons.scss" />
     <Content Include="Content\css\blocks\forms\selects.scss" />
+    <Content Include="Content\css\pages\main-page\info.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

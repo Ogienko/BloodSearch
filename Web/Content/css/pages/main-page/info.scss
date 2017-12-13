@@ -1,0 +1,21 @@
+﻿.info {
+    margin-bottom: 2.5rem;
+
+    &-content {
+        padding: 1.5rem;
+    }
+
+    &-title {
+        margin-bottom: 1rem;
+    }
+
+    &-table {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    &-plus {
+        color: $red;
+        font-weight: bold;
+    }
+}

@@ -307,7 +307,7 @@ body, html {
   height: 100%; }
 
 body {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   -webkit-text-size-adjust: 100%;
   font-family: PTSansRegular,'DIN Pro', sans-serif;
   background: #f0f0f0;
@@ -556,7 +556,7 @@ a {
   border-radius: .4rem;
   border: none;
   height: 4rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-family: PTSansRegular,'DIN Pro', sans-serif;
   outline: none; }
   .btn--white {
@@ -631,4 +631,17 @@ select {
       display: flex; }
   .search-btn {
     width: 20rem; }
+
+.info {
+  margin-bottom: 2.5rem; }
+  .info-content {
+    padding: 1.5rem; }
+  .info-title {
+    margin-bottom: 1rem; }
+  .info-table {
+    text-align: center;
+    margin: 0 auto; }
+  .info-plus {
+    color: #ee2d24;
+    font-weight: bold; }
 
