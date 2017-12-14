@@ -23,7 +23,7 @@ namespace Web {
                 name: "Search",
                 url: "search/",
                 defaults: new {
-                    controller = "Search",
+                    controller = "SearchItems",
                     action = "Index",
                     httpMethod = new HttpMethodConstraint("GET")
                 }

@@ -27,29 +27,31 @@
                 <div class="search-content">
                     <h2 class="search-title">Поиск объявлений</h2>
                     <div class="search-row">
-                        <div class="search-row__item">
-                            <select name="">
-                                <option selected disabled>Выберите группу крови</option>
-                                <option value="">O(I) Rh−</option>
-                                <option value="">O(I) Rh+</option>
-                                <option value="">A(II) Rh−</option>
-                                <option value="">A(II) Rh+</option>
-                                <option value="">B(III) Rh−<</option>
-                                <option value="">B(III) Rh+</option>
-                                <option value="">AB(IV) Rh−</option>
-                                <option value="AB(IV) Rh+"></option>
-                            </select>
-                        </div>
-                        <div class="search-row__item">
-                            <select name="">
-                                <option selected disabled>Выберите город</option>
-                                <option value="1">Москва</option>
-                                <option value="31">Белгород</option>
-                            </select>
-                        </div>
-                        <div class="search-row__item">
-                            <input type="button" class="btn btn--red search-btn" value="Поиск" />
-                        </div>
+                        <form method="get" action="/search">
+                            <div class="search-row__item">
+                                <select name="Cat">
+                                    <option selected disabled>Выберите группу крови</option>
+                                    <option value="1">O(I) Rh−</option>
+                                    <option value="2">O(I) Rh+</option>
+                                    <option value="3">A(II) Rh−</option>
+                                    <option value="4">A(II) Rh+</option>
+                                    <option value="5">B(III) Rh−<</option>
+                                    <option value="6">B(III) Rh+</option>
+                                    <option value="7">AB(IV) Rh−</option>
+                                    <option value="8">AB(IV) Rh+</option>
+                                </select>
+                            </div>
+                            <div class="search-row__item">
+                                <select name="Ct">
+                                    <option selected disabled>Выберите город</option>
+                                    <option value="1">Москва</option>
+                                    <option value="31">Белгород</option>
+                                </select>
+                            </div>
+                            <div class="search-row__item">
+                                <input type="submit" class="btn btn--red search-btn" value="Поиск" />
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -57,7 +59,7 @@
             <div class="frame shadow info">
                 <div class="info-content">
                     <h2 class="info-title">Общая информация</h2>
-                    <p>BloodSearch - крупнейшай площадка для быстрого поиска крови. На данной площадке пользователи могут помогать нуждающимся. Требуется создать объявление.</p>
+                    <p>BloodSearch - крупнейшай площадка для быстрого поиска донора крови. На данной площадке пользователи могут помогать нуждающимся. Требуется создать объявление.</p>
                     <br />
                     <table border="1" class="info-table">
                         <caption>Таблица совместимости</caption>
