@@ -23,6 +23,13 @@
         .logo {
             width: 30.9rem;
             line-height: 6.8rem;
+            text-decoration: none;
+
+            span {
+                font-size: 2.6rem;
+                color: black;
+                margin-left: 2rem;
+            }
 
             img {
                 display: inline-block;

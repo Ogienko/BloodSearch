@@ -17,7 +17,7 @@
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-    @Html.Partial("_Header")
+    @Html.Partial("_Header", 0)
     <main>
         <div class="wrap">
             <div class="offer__card">
@@ -41,7 +41,7 @@
                 <div class="offer__phone-box">
                     <div class="offer__phone-contact">
                         <p class="mb10">@Model.Offer.Name</p>
-                        <span class="offer__phone-link print-bold" >@Model.Offer.Contact</span>
+                        <span class="offer__phone-link print-bold">@Model.Offer.Contact</span>
                     </div>
                 </div>
             </div>

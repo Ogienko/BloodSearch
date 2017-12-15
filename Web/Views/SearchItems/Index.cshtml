@@ -18,7 +18,7 @@
     <script src="~/Scripts/Pages/SearchItems/search-filter-back-scroll.js"></script>
 </head>
 <body>
-    @Html.Partial("_Header")
+    @Html.Partial("_Header", 2)
     <main>
         <div class="wrap">
             <div class="search">
@@ -33,9 +33,9 @@
 
                             <div class="search-row__item">
                                 <select name="Type">
-                                    <option selected disabled>Выберите тип объявления</option>
-                                    <option value="donor">Донор</option>
-                                    <option value="recipient">Реципиент</option>
+                                    <option disabled>Выберите тип объявления</option>
+                                    <option @(Model.Filter.Type == OfferTypeEnum.Donor ? Html.Raw("selected") : Html.Raw("")) value="donor">Донор</option>
+                                    <option @(Model.Filter.Type == OfferTypeEnum.Recipient ? Html.Raw("selected") : Html.Raw("")) value="recipient">Реципиент</option>
                                 </select>
                             </div>
                             <div class="search-row__item">

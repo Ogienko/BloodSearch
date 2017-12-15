@@ -1,19 +1,39 @@
-﻿<header class="main-header">
+﻿@model int
+
+<header class="main-header">
     <div class="wrap">
         <div class="main-header__content">
             <div class="main-header__item">
                 <a class="logo" href="/">
                     <img src="~/content/img/logo.png" alt="">
+                    <span>BloodSearch</span>
                 </a>
-                <nav class="main-menu">
-                    <span class="main-menu__item active">Главная</span>
-                    <a class="main-menu__item" href="/search/">Поиск</a>
-                </nav>
+                @switch (Model) {
+
+                    case 1:
+                        <nav class="main-menu">
+                            <span class="main-menu__item active">Главная</span>
+                            <a class="main-menu__item" href="/search/">Поиск</a>
+                        </nav>
+                        break;
+                    case 2:
+                        <nav class="main-menu">
+                            <a class="main-menu__item" href="/">Главная</a>
+                            <span class="main-menu__item active">Поиск</span>
+                        </nav>
+                        break;
+                    default:
+                        <nav class="main-menu">
+                            <a class="main-menu__item" href="/">Главная</a>
+                            <a class="main-menu__item" href="/search/">Поиск</a>
+                        </nav>
+                        break;
+                }
             </div>
-            <div class="main-header__item header-nav">
+            @*<div class="main-header__item header-nav">
                 <a class="header-nav__item header-nav__item--black pseudo" href="/additem/">Создать объявление</a>
                 <a href="/login/" class="header-nav__item header-nav__item--black pseudo">Войти</a>
-            </div>
+            </div>*@
         </div>
     </div>
 </header>
