@@ -1,0 +1,108 @@
+﻿.offer {
+    &__card {
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 2rem 2rem 2rem;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        margin-bottom: .6rem;
+        font-weight: normal;
+        padding-right: 3rem;
+    }
+
+    &__location {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: normal;
+        line-height: 2rem;
+        padding-top: .2rem;
+    }
+
+    &__address {
+        line-height: 2rem;
+        margin-bottom: 3.2rem;
+    }
+
+    &__description {
+        line-height: 2.06rem;
+        margin-bottom: 2.3rem;
+    }
+
+    &__phone-box {
+        border: 1px solid #919191;
+        font-size: 1.8rem;
+        font-weight: bold;
+        min-height: 8.6rem;
+        // padding: 3rem 2.3rem 2.7rem 2.3rem;
+        // padding-bottom: 2.7rem;
+        width: 34.2rem;
+        text-align: center;
+    }
+
+    &__phone-link {
+        border-bottom: 1px dotted;
+        color: $red;
+        font-weight: bold;
+        margin-left: 2.4rem;
+        width: 18rem;
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            /*background: no-repeat e('0 0 / 100% 100%') url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAYFBMVEUAAAB+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5yRI6SAAAAH3RSTlMAlz4D4IrEpPTw43UzD+vSnJBMGQa8uLJ5a1crk39cZYfE6AAAAMdJREFUOMuFktkOgyAQRZFNAdG61WqX+f+/bEMyHUwGPU8k9wSYmxGJoXmLMyoAaC9yuJ/lCXmRgy3kAZCRFzQgvWIFIHZWcCTUrGBJ2FjBAHITLJIe4FE4xkcUeECi3HV0WNTVFT4WhBl/sQqCH+QlCL6LofSI/Zcx88bk0VhiKsd0y3EHnw4NPf7yOlU/5UbbALLuNSTcpvJRyCB6md/RAYPJ/+EZoTnMYingm1HYWHmJZA85FbM/oeNzIgZNeQFprAcd0vkLBt0pW2jTxT8AAAAASUVORK5CYII=');*/
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            margin-right: .6rem;
+        }
+    }
+
+    &__phone-contact {
+        padding-top: 2.7rem;
+        margin-bottom: 2.7rem;
+
+        &_brand {
+            padding-top: 1rem;
+            margin-bottom: 2.7rem;
+        }
+    }
+
+    &__phone-brand-bottom-line {
+        height: .5rem;
+    }
+
+    &-phone-img {
+        // margin: -3rem -2.3rem 3.1rem -2.3rem;
+        height: 3.5rem;
+
+        &_top {
+            padding-left: .7rem;
+
+            img {
+                max-width: 100%;
+                max-height: 3.5rem;
+            }
+        }
+
+        &_center {
+            margin-top: 1.9rem;
+            margin-bottom: 1.6rem;
+
+            img {
+                margin: 0 auto;
+                width: 96px
+            }
+        }
+    }
+}

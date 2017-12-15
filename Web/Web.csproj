@@ -265,6 +265,8 @@
     <Content Include="Content\css\pages\search-items\list.scss" />
     <Content Include="Content\css\pages\search-items\snippet.scss" />
     <Content Include="Content\css\blocks\pagination.scss" />
+    <Content Include="Content\css\pages\offer\offer.scss" />
+    <Content Include="Content\css\pages\offer\card.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

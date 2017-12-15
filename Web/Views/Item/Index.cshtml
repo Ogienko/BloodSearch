@@ -1,4 +1,5 @@
 ﻿@using BloodSearch.Models.Api.Models.Offers.Requests;
+@using BloodSearch.Models.Api.Models.Offers;
 
 @model GetOfferResult
 
@@ -19,14 +20,30 @@
     @Html.Partial("_Header")
     <main>
         <div class="wrap">
-            <div class="search frame shadow">
-                @Model.Id
-                @Model.CreatedDate
-                @Model.Offer.Category
-                @Model.Offer.Description
-                @Model.Offer.Name
-                @Model.Offer.Contact
-                @Model.Type
+            <div class="offer__card">
+                <div class="offer__header">
+                    @if (Model.Type == OfferTypeEnum.Donor) {
+                        <h1 class="offer__title">Донор</h1>
+                    } else {
+                        <h1 class="offer__title">Реципиент</h1>
+                    }
+                </div>
+
+                <div class="offer__address">
+                    <p>Код региона: @Model.Offer.City</p>
+                </div>
+
+                <div class="offer__description">
+                    <p>@Model.Offer.Category</p>
+                    <p>@Model.Offer.Description</p>
+                </div>
+
+                <div class="offer__phone-box">
+                    <div class="offer__phone-contact">
+                        <p class="mb10">@Model.Offer.Name</p>
+                        <span class="offer__phone-link print-bold" >@Model.Offer.Contact</span>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
