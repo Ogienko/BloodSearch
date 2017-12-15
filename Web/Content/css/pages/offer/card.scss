@@ -1,10 +1,12 @@
 ﻿.offer {
     &__card {
         background: #fff;
-        display: flex;
+        /*display: flex;*/
         justify-content: space-between;
         align-items: flex-start;
         padding: 2rem 2rem 2rem;
+        height: 65rem;
+        margin-bottom: 2rem;
     }
 
     &__header {
