@@ -15,39 +15,91 @@
     <title>BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/Pages/SearchItems/search-filter-back-scroll.js"></script>
 </head>
 <body>
     @Html.Partial("_Header")
     <main>
         <div class="wrap">
-            <div class="search frame shadow">
-                <span>Фильтр</span>
-                <span>Всего найдено @Model.TotalCount объявлений</span>
-                <span>Сортировка</span>
+            <div class="search">
+                <h2>Всего найдено @Model.TotalCount объявления</h2>
             </div>
 
-            <ul class="listing">
-                @foreach (var item in Model.Items) {
-                    <li class="listing__item">
-                        <a href="/item/@item.Id" class="offer-snippet">
-                            <div class="offer-snippet__content-box">
-                                <div class="offer-snippet__content">
-                                    @if (item.Type == OfferTypeEnum.Donor) {
-                                        <h3>Донор</h3>
-                                    } else {
-                                        <h3>Реципиент</h3>
-                                    }
-                                    <span>@item.Offer.Category</span>
-                                    <p>@item.Offer.Description</p>
-                                </div>
-                                <div class="offer-snippet__footer">
-                                    <span>Код региона: @item.Offer.City</span>
-                                </div>
+            <div class="frame shadow search main-filters">
+                <div class="search-content">
+                    <h2 class="search-title">Фильтр</h2>
+                    <form method="get" action="/search">
+                        <div class="search-row">
+
+                            <div class="search-row__item">
+                                <select name="Type">
+                                    <option selected disabled>Выберите тип объявления</option>
+                                    <option value="donor">Донор</option>
+                                    <option value="recipient">Реципиент</option>
+                                </select>
                             </div>
-                        </a>
-                    </li>
-                }
-            </ul>
+                            <div class="search-row__item">
+                                <select name="Cat">
+                                    <option selected disabled>Выберите группу крови</option>
+                                    <option value="1">O(I) Rh−</option>
+                                    <option value="2">O(I) Rh+</option>
+                                    <option value="3">A(II) Rh−</option>
+                                    <option value="4">A(II) Rh+</option>
+                                    <option value="5">B(III) Rh−<</option>
+                                    <option value="6">B(III) Rh+</option>
+                                    <option value="7">AB(IV) Rh−</option>
+                                    <option value="8">AB(IV) Rh+</option>
+                                </select>
+                            </div>
+                            <div class="search-row__item">
+                                <select name="Ct">
+                                    <option selected disabled>Выберите город</option>
+                                    <option value="1">Москва</option>
+                                    <option value="31">Белгород</option>
+                                </select>
+                            </div>
+                            <div class="search-row__item">
+                                <input type="submit" class="btn btn--red search-btn" value="Поиск" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <ul class="listing">
+                    @foreach (var item in Model.Items) {
+                        <li class="listing__item">
+                            <a href="/item/@item.Id" class="offer-snippet">
+
+                                <div class="offer-snippet-gallery">
+                                    <img src="~/Content/img/logo.png" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                </div>
+
+                                <div class="offer-snippet__content-box">
+                                    <div class="offer-snippet__content">
+                                        @if (item.Type == OfferTypeEnum.Donor) {
+                                            <h3>Донор</h3>
+                                        } else {
+                                            <h3>Реципиент - требуется донор</h3>
+                                        }
+                                        <span>@item.Offer.Category</span>
+                                        <p>@item.Offer.Description</p>
+                                        <span>Сроки: 05.05.2017-06.06.2017</span>
+                                    </div>
+                                    <div class="offer-snippet__footer">
+                                        <span>Код региона: @item.Offer.City</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            @*<aside class="right-column2">
+                <div class="btn btn--red back-to-filters"><span>Вернуться к фильтру</span></div>
+            </aside>*@
 
             <div class="frame">
                 @if (Model.PagingFilter.MaxPageNumber > 1) {

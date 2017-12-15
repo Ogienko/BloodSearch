@@ -1,0 +1,15 @@
+﻿.offer-snippet-gallery {
+    flex: 1 0 auto;
+    overflow: hidden;
+    max-width: 22.5rem;
+
+    @media only screen and (max-width: 1130px) {
+        width: 15rem;
+    }
+
+    &__img {
+        position: relative;
+        left: 50%;
+        min-height: 100%;
+    }
+}

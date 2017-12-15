@@ -730,6 +730,18 @@ select {
     min-height: 7.5rem;
     position: relative; }
 
+.offer-snippet-gallery {
+  flex: 1 0 auto;
+  overflow: hidden;
+  max-width: 22.5rem; }
+  @media only screen and (max-width: 1130px) {
+    .offer-snippet-gallery {
+      width: 15rem; } }
+  .offer-snippet-gallery__img {
+    position: relative;
+    left: 50%;
+    min-height: 100%; }
+
 .offer__card {
   background: #fff;
   display: flex;

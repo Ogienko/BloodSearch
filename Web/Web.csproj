@@ -271,6 +271,7 @@
     <Content Include="Content\css\blocks\pagination.scss" />
     <Content Include="Content\css\pages\offer\offer.scss" />
     <Content Include="Content\css\pages\offer\card.scss" />
+    <Content Include="Content\css\pages\search-items\gallery.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -285,6 +286,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Pages\SearchItems\search-filter-back-scroll.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config">
