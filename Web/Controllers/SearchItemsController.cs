@@ -9,7 +9,6 @@ namespace Web.Controllers {
 
     public class SearchItemsController : Controller {
 
-        [HttpGet]
         public ActionResult Index(QueryParameters parameters) {
 
             var model = new SearchItemsIndexResponse(System.Web.HttpContext.Current) {

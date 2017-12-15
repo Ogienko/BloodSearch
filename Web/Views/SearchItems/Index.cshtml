@@ -27,9 +27,11 @@
 
             @foreach (var item in Model.Items) {
                 <div class="search frame shadow">
-                    @item.Offer.City
-                    @item.Offer.Contact
-                    @item.Offer.Category
+                    <a href="/item/@item.Id">
+                        @item.Offer.City
+                        @item.Offer.Contact
+                        @item.Offer.Category
+                    </a>
                 </div>
             }
 

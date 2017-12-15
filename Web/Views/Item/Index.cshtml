@@ -1,0 +1,42 @@
+﻿@using BloodSearch.Models.Api.Models.Offers.Requests;
+
+@model GetOfferResult
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BloodSearch.com</title>
+    <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    @Html.Partial("_Header")
+    <main>
+        <div class="wrap">
+            <div class="search frame shadow">
+                @Model.Id
+                @Model.CreatedDate
+                @Model.Offer.Category
+                @Model.Offer.Description
+                @Model.Offer.Name
+                @Model.Offer.Contact
+                @Model.Type
+            </div>
+        </div>
+    </main>
+
+    @Html.Partial("_Footer")
+
+    <script>
+        $(function () {
+
+        });
+    </script>
+</body>
+</html>

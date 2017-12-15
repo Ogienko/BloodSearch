@@ -150,6 +150,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\SearchItemsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -296,6 +297,7 @@
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\SearchItems\Index.cshtml" />
     <Content Include="Views\SearchItems\_PaginationPartial.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
