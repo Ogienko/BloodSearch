@@ -156,7 +156,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\RealtyItem\RealtyItemModel.cs" />
+    <Compile Include="Models\Item\ItemModel.cs" />
     <Compile Include="Models\SearchItems\SearchItemsIndexResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -261,6 +261,10 @@
     <Content Include="Content\css\blocks\forms\buttons.scss" />
     <Content Include="Content\css\blocks\forms\selects.scss" />
     <Content Include="Content\css\pages\main-page\info.scss" />
+    <Content Include="Content\css\pages\search-items\search-items.scss" />
+    <Content Include="Content\css\pages\search-items\list.scss" />
+    <Content Include="Content\css\pages\search-items\snippet.scss" />
+    <Content Include="Content\css\blocks\pagination.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -301,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\MainPage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

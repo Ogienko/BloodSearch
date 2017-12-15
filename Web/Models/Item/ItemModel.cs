@@ -4,6 +4,6 @@ using System.Linq;
 using System.Web;
 
 namespace Web.Models.RealtyItem {
-    public class RealtyItemModel {
+    public class ItemModel {
     }
 }

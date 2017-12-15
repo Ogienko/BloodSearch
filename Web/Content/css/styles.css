@@ -618,6 +618,65 @@ select {
   border-color: #ee2d24;
   border-radius: 0.2rem; }
 
+.pagination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 0.6rem 0 0.7rem 0; }
+  .pagination__list {
+    display: flex;
+    align-items: center; }
+  .pagination__item + .pagination__item {
+    margin-left: 1rem; }
+  .pagination__link {
+    border-bottom: .3rem solid transparent;
+    width: 3rem;
+    display: block;
+    height: 3.7rem;
+    font-size: 1.5rem;
+    line-height: 3.7rem;
+    text-decoration: none;
+    color: inherit; }
+    .pagination__link.active {
+      color: #ee2d24; }
+      .pagination__link.active:hover {
+        color: #ee2d24; }
+    .pagination__link:hover {
+      color: #ee2d24; }
+  .pagination__arrow {
+    background: no-repeat 50%;
+    position: relative;
+    cursor: pointer;
+    /*&--prev {
+            background-image: ;
+
+            &::before {
+                background-image: ;
+            }
+        }
+
+        &--next {
+            background-image: ;
+
+            &::before {
+                background-image: ;
+            }
+        }*/ }
+    .pagination__arrow:hover::before {
+      opacity: 1; }
+    .pagination__arrow::before {
+      content: '';
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: no-repeat 50%;
+      z-index: 1;
+      opacity: 0; }
+
 .search {
   margin-bottom: 2.5rem; }
   .search-content {
@@ -644,4 +703,37 @@ select {
   .info-plus {
     color: #ee2d24;
     font-weight: bold; }
+
+.listing {
+  margin-bottom: 2.5rem; }
+  .listing__item + .listing__item {
+    margin-top: 2rem; }
+
+.offer-snippet {
+  display: flex;
+  height: 22.5rem;
+  background: #fff;
+  color: inherit;
+  text-decoration: none; }
+  .offer-snippet:hover {
+    box-shadow: 0 0.2rem 0.5rem rgba(177, 177, 177, 0.5);
+    color: inherit; }
+  .offer-snippet__content-box {
+    display: flex;
+    flex-direction: column;
+    /*overflow: hidden;*/
+    width: 100%; }
+  .offer-snippet__content {
+    position: relative;
+    padding: 2rem 3rem 1.5rem;
+    max-height: 16.5rem; }
+    @media only screen and (max-width: 1130px) {
+      .offer-snippet__content {
+        padding: 2rem 2rem 1.5rem; } }
+  .offer-snippet__footer {
+    border-top: 0.1rem solid #ebebeb;
+    padding: 2rem 5.9rem 1.5rem 3rem;
+    margin-top: auto;
+    min-height: 7.5rem;
+    position: relative; }
 

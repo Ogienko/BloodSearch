@@ -1,4 +1,5 @@
 ﻿@using Web.Models.SearchItems;
+@using BloodSearch.Models.Api.Models.Offers;
 
 @model SearchItemsIndexResponse
 
@@ -19,21 +20,34 @@
     @Html.Partial("_Header")
     <main>
         <div class="wrap">
-
             <div class="search frame shadow">
                 <span>Фильтр</span>
                 <span>Всего найдено @Model.TotalCount объявлений</span>
+                <span>Сортировка</span>
             </div>
 
-            @foreach (var item in Model.Items) {
-                <div class="search frame shadow">
-                    <a href="/item/@item.Id">
-                        @item.Offer.City
-                        @item.Offer.Contact
-                        @item.Offer.Category
-                    </a>
-                </div>
-            }
+            <ul class="listing">
+                @foreach (var item in Model.Items) {
+                    <li class="listing__item">
+                        <a href="/item/@item.Id" class="offer-snippet">
+                            <div class="offer-snippet__content-box">
+                                <div class="offer-snippet__content">
+                                    @if (item.Type == OfferTypeEnum.Donor) {
+                                        <h3>Донор</h3>
+                                    } else {
+                                        <h3>Реципиент</h3>
+                                    }
+                                    <span>@item.Offer.Category</span>
+                                    <p>@item.Offer.Description</p>
+                                </div>
+                                <div class="offer-snippet__footer">
+                                    <span>Код региона: @item.Offer.City</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
 
             <div class="frame">
                 @if (Model.PagingFilter.MaxPageNumber > 1) {
