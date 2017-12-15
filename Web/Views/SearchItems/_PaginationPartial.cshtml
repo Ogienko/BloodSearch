@@ -2,14 +2,11 @@
 @model SearchItemsIndexResponse
 
 <div class="pagination">
-    @if (Model.PagingFilter.PageNumber > 1)
-    {
+    @if (Model.PagingFilter.PageNumber > 1) {
         <span class="pagination__arrow pagination__arrow--prev">
             <a href="@Model.GetUrlByWithPageNumber(Model.PagingFilter.PageNumber - 1)" class="pagination__link"></a>
         </span>
-    }
-    else
-    {
+    } else {
         <span class="pagination__arrow pagination__arrow--prev disabled">
         </span>
     }
@@ -17,13 +14,11 @@
     <ul class="pagination__list">
         @{
             var startPageNumber = Model.PagingFilter.PageNumber - 3;
-            if (startPageNumber <= 0)
-            {
+            if (startPageNumber <= 0) {
                 startPageNumber = 1;
             }
 
-            if (startPageNumber > 3)
-            {
+            if (startPageNumber > 3) {
                 <li class="pagination__item">
                     <a href="@Model.GetUrlByWithPageNumber(1)" class="pagination__link">1</a>
                 </li>
@@ -34,29 +29,23 @@
             }
 
             int iPageNumber;
-            for (iPageNumber = startPageNumber; iPageNumber <= Model.PagingFilter.MaxPageNumber; iPageNumber++)
-            {
-                if (iPageNumber - Model.PagingFilter.PageNumber > 6)
-                {
+            for (iPageNumber = startPageNumber; iPageNumber <= Model.PagingFilter.MaxPageNumber; iPageNumber++) {
+                if (iPageNumber - Model.PagingFilter.PageNumber > 6) {
                     break;
                 }
 
                 <li class="pagination__item">
-                    @if (Model.PagingFilter.PageNumber == iPageNumber)
-                {
+                    @if (Model.PagingFilter.PageNumber == iPageNumber) {
 
                         <span class="pagination__link active">@iPageNumber</span>
 
-                    }
-                    else
-                    {
+                    } else {
                         <a href="@Model.GetUrlByWithPageNumber(iPageNumber)" class="pagination__link">@iPageNumber</a>
                     }
-                    </li>
+                </li>
             }
 
-            if (iPageNumber < Model.PagingFilter.MaxPageNumber)
-            {
+            if (iPageNumber < Model.PagingFilter.MaxPageNumber) {
                 <li class="pagination__item">
                     <span class="pagination__link">...</span>
                 </li>
@@ -64,14 +53,11 @@
         }
     </ul>
 
-    @if (Model.PagingFilter.PageNumber + 1 <= Model.PagingFilter.MaxPageNumber)
-    {
+    @if (Model.PagingFilter.PageNumber + 1 <= Model.PagingFilter.MaxPageNumber) {
         <span class="pagination__arrow pagination__arrow--next">
             <a href="@Model.GetUrlByWithPageNumber(Model.PagingFilter.PageNumber + 1)" class="pagination__link"></a>
         </span>
-    }
-    else
-    {
+    } else {
         <span class="pagination__arrow pagination__arrow--next disabled">
         </span>
     }

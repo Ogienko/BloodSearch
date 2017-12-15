@@ -168,6 +168,10 @@
       <DependentUpon>styles.css</DependentUpon>
     </Content>
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\pagination-arrow-next-blue.svg" />
+    <Content Include="Content\img\pagination-arrow-next.svg" />
+    <Content Include="Content\img\pagination-arrow-prev-blue.svg" />
+    <Content Include="Content\img\pagination-arrow-prev.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

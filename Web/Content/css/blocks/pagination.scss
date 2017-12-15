@@ -62,20 +62,21 @@
             z-index: 1;
             opacity: 0;
         }
-        /*&--prev {
-            background-image: ;
+
+        &--prev {
+            background-image: url('/content/img/pagination-arrow-prev.svg');
 
             &::before {
-                background-image: ;
+                background-image: url('/content/img/pagination-arrow-prev-blue.svg');
             }
         }
 
         &--next {
-            background-image: ;
+            background-image: url('/content/img/pagination-arrow-next.svg');
 
             &::before {
-                background-image: ;
+                background-image: url('/content/img/pagination-arrow-next-blue.svg');
             }
-        }*/
+        }
     }
 }

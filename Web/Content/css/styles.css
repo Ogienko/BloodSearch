@@ -647,22 +647,7 @@ select {
   .pagination__arrow {
     background: no-repeat 50%;
     position: relative;
-    cursor: pointer;
-    /*&--prev {
-            background-image: ;
-
-            &::before {
-                background-image: ;
-            }
-        }
-
-        &--next {
-            background-image: ;
-
-            &::before {
-                background-image: ;
-            }
-        }*/ }
+    cursor: pointer; }
     .pagination__arrow:hover::before {
       opacity: 1; }
     .pagination__arrow::before {
@@ -676,6 +661,14 @@ select {
       background: no-repeat 50%;
       z-index: 1;
       opacity: 0; }
+    .pagination__arrow--prev {
+      background-image: url("/content/img/pagination-arrow-prev.svg"); }
+      .pagination__arrow--prev::before {
+        background-image: url("/content/img/pagination-arrow-prev-blue.svg"); }
+    .pagination__arrow--next {
+      background-image: url("/content/img/pagination-arrow-next.svg"); }
+      .pagination__arrow--next::before {
+        background-image: url("/content/img/pagination-arrow-next-blue.svg"); }
 
 .search {
   margin-bottom: 2.5rem; }
