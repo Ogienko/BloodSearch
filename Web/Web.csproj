@@ -156,6 +156,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Authorization\MembershipService.cs" />
+    <Compile Include="Infrastructure\Authorization\WebUser.cs" />
     <Compile Include="Models\Item\ItemModel.cs" />
     <Compile Include="Models\SearchItems\SearchItemsIndexResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
