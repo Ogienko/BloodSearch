@@ -15,6 +15,7 @@
     <title>BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;load=package.full"></script>
 </head>
 <body>
     @Html.Partial("_Header", 0)
@@ -53,9 +54,7 @@
 
                 <div class="map-box">
                     <span>Ближайшие пункты для сдачи крови</span>
-                    <div class="map">
-                        
-                    </div>
+                    <div id="myMap" class="map"></div>
                 </div>
             </div>
         </div>
@@ -72,14 +71,28 @@
 
         .map {
             margin-top: 1rem;
-            border: 1px solid #ff0000;
-            height: 30rem;
+            height: 50rem;
         }
     </style>
 
-    <script>
+    <script type="text/javascript">
         $(function () {
+            ymaps.ready(function () {
+                myMap = new ymaps.Map("myMap", {
+                    center: [50.595660, 36.587223],
+                    zoom: 10
+                });
 
+                var searchControl = new ymaps.control.SearchControl({
+                    options: {
+                        provider: 'yandex#search'
+                    }
+                });
+
+                myMap.controls.add(searchControl);
+
+                searchControl.search('Пункты сдачи крови');
+            });
         });
     </script>
 </body>
