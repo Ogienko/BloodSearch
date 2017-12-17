@@ -1,0 +1,81 @@
+﻿@using Web.Models;
+
+@model AddItemRequest
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Подача объявления — BloodSearch.com</title>
+    <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;load=package.full"></script>
+</head>
+<body>
+
+    @Html.Partial("_Header", 0)
+
+    <main>
+        <div class="wrap">
+
+            @Model.Id
+            @Model.Name
+            @Model.Type
+            @Model.Category
+            @*@Model.DateOfBirth*@
+            @Model.Weight
+            @Model.Healthy
+            @Model.Description
+            @Model.Phone
+            @Model.Email
+            @*@Model.GeoCoderMeta*@
+
+            <div class="map-box">
+                <span>Ближайшие пункты для сдачи крови</span>
+                <div id="myMap" class="map"></div>
+            </div>
+        </div>
+    </main>
+
+    @Html.Partial("_Footer")
+
+    <style>
+        .map-box {
+            border-top: 1px solid #808080;
+            margin-top: 2rem;
+            padding-top: 2rem;
+        }
+
+        .map {
+            margin-top: 1rem;
+            height: 50rem;
+        }
+    </style>
+
+    @*<script type="text/javascript">
+            $(function () {
+                ymaps.ready(function () {
+                    myMap = new ymaps.Map("myMap", {
+                        center: [50.595660, 36.587223],
+                        zoom: 10
+                    });
+
+                    var searchControl = new ymaps.control.SearchControl({
+                        options: {
+                            provider: 'yandex#search'
+                        }
+                    });
+
+                    myMap.controls.add(searchControl);
+
+                    searchControl.search('Пункты сдачи крови');
+                });
+            });
+        </script>*@
+</body>
+</html>

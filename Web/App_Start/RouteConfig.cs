@@ -16,7 +16,8 @@ namespace Web {
                 defaults: new {
                     controller = "MainPage",
                     action = "Index",
-                    httpMethod = new HttpMethodConstraint("GET") }
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
             );
 
             routes.MapRoute(
@@ -65,6 +66,17 @@ namespace Web {
                 defaults: new {
                     controller = "StaticContent",
                     action = "Stations",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
+            );
+
+            routes.MapRoute(
+                name: "AddItem",
+                url: "additem/{id}/",
+                defaults: new {
+                    controller = "AddItem",
+                    id = UrlParameter.Optional,
+                    action = "Index",
                     httpMethod = new HttpMethodConstraint("GET")
                 }
             );

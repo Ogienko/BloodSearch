@@ -46,6 +46,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BloodSearch.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Common\BloodSearch.Core\bin\Debug\BloodSearch.Core.dll</HintPath>
+    </Reference>
     <Reference Include="BloodSearch.Filter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Common\BloodSearch.Filter\bin\Debug\BloodSearch.Filter.dll</HintPath>
@@ -63,12 +67,21 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -149,7 +162,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddItemController.cs" />
+    <Compile Include="Controllers\Api\ApiAddItemController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\SearchItemsController.cs" />
@@ -159,6 +175,7 @@
     </Compile>
     <Compile Include="Infrastructure\Authorization\MembershipService.cs" />
     <Compile Include="Infrastructure\Authorization\WebUser.cs" />
+    <Compile Include="Models\AddItemRequest.cs" />
     <Compile Include="Models\Item\ItemModel.cs" />
     <Compile Include="Models\SearchItems\SearchItemsIndexResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -275,6 +292,7 @@
     <Content Include="Content\css\pages\offer\offer.scss" />
     <Content Include="Content\css\pages\offer\card.scss" />
     <Content Include="Content\css\pages\search-items\gallery.scss" />
+    <Content Include="Content\css\pages\add-item\add-item.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -314,6 +332,7 @@
     <Content Include="Views\SearchItems\_PaginationPartial.cshtml" />
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\StaticContent\Stations.cshtml" />
+    <Content Include="Views\AddItem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
