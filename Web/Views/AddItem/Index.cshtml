@@ -1,4 +1,5 @@
 ﻿@using Web.Models;
+@using BloodSearch.Models.Api.Models.Offers;
 
 @model AddItemRequest
 
@@ -22,40 +23,85 @@
 
     <main>
         <div class="wrap">
+            <div class="frame shadow form-additem">
 
-            @Model.Id
-            @Model.Name
-            @Model.Type
-            @Model.Category
-            @*@Model.DateOfBirth*@
-            @Model.Weight
-            @Model.Healthy
-            @Model.Description
-            @Model.Phone
-            @Model.Email
-            @*@Model.GeoCoderMeta*@
+                <h1>Разместить объявление</h1>
 
-            <div class="map-box">
-                <span>Ближайшие пункты для сдачи крови</span>
-                <div id="myMap" class="map"></div>
+                <div class="form-additem__group">
+                    <div class="form-additem__group-row">
+                        <div class="form-additem__group-row__col">
+                            <label for="name" class="">Имя:</label>
+                        </div>
+                        <div class="form-additem__group-row__col">
+                            <input id="name" name="name" type="text" value="@Model.Name" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-additem__group">
+                    <div class="form-additem__group-row">
+                        <div class="form-additem__group-row__col">
+                            <label for="type" class="">Тип объявления:</label>
+                        </div>
+                        <div class="form-additem__group-row__col">
+                            <span><input type="radio" name="type" value="donor" @(Model.Type == OfferTypeEnum.Donor ? "checked" : "") />Донор</span>
+                            <span><input type="radio" name="type" value="recipient" @(Model.Type == OfferTypeEnum.Recipient ? "checked" : "") />Реципиент</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-additem__group">
+                    <label for="category" class="">Категория крови:</label>
+                    <select id="category" name="category">
+                        <option disabled>Выберите группу крови</option>
+                        <option value="1" @((int)Model.Category == 1 ? "selected" : "")>O(I) Rh−</option>
+                        <option value="2" @((int)Model.Category == 2 ? "selected" : "")>O(I) Rh+</option>
+                        <option value="3" @((int)Model.Category == 3 ? "selected" : "")>A(II) Rh−</option>
+                        <option value="4" @((int)Model.Category == 4 ? "selected" : "")>A(II) Rh+</option>
+                        <option value="5" @((int)Model.Category == 5 ? "selected" : "")>B(III) Rh−<</option>
+                        <option value="6" @((int)Model.Category == 6 ? "selected" : "")>B(III) Rh+</option>
+                        <option value="7" @((int)Model.Category == 7 ? "selected" : "")>AB(IV) Rh−</option>
+                        <option value="8" @((int)Model.Category == 8 ? "selected" : "")>AB(IV) Rh+</option>
+                    </select>
+                </div>
+
+                <div class="form-additem__group">
+                    <label for="DateOfBirth" class="">Дата рождения:</label>
+                    <input id="DateOfBirth" name="DateOfBirth" type="date" value="@Model.DateOfBirth.ToShortDateString()" />
+                </div>
+
+                <div class="form-additem__group">
+                    <label for="Weight" class="">Вес:</label>
+                    <input id="Weight" name="Weight" type="text" value="@Model.Weight" />
+                </div>
+
+                <div class="form-additem__group">
+                    <label for="Description" class="">Описание:</label>
+                    <textarea name="Description">@Model.Description</textarea>
+                </div>
+
+                <div class="form-additem__group">
+                    <label for="Phone" class="">Телефон:</label>
+                    <input id="Phone" name="Phone" type="text" value="@Model.Phone" />
+                </div>
+
+                <div class="form-additem__group">
+                    <label for="Email" class="">E-mail:</label>
+                    <input id="Email" name="Email" type="text" value="@Model.Email" />
+                </div>
+
+                <div class="">
+                    @*@Model.GeoCoderMeta*@
+                </div>
+
+                <div>
+                    <div id="myMap"></div>
+                </div>
             </div>
         </div>
     </main>
 
     @Html.Partial("_Footer")
-
-    <style>
-        .map-box {
-            border-top: 1px solid #808080;
-            margin-top: 2rem;
-            padding-top: 2rem;
-        }
-
-        .map {
-            margin-top: 1rem;
-            height: 50rem;
-        }
-    </style>
 
     @*<script type="text/javascript">
             $(function () {

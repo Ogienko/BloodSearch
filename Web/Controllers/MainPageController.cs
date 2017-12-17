@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using BloodSearch.Core.Extensions;
 using BloodSearch.Models.Api;
-using BloodSearch.Models.Api.Models.Offers.Requests;
 using BloodSearch.Models.Api.Models.Offers;
+using BloodSearch.Models.Api.Models.Offers.Requests;
+using System;
+using System.Web.Mvc;
 
 namespace Web.Controllers {
 
@@ -16,55 +14,210 @@ namespace Web.Controllers {
             //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
             //    Type = OfferTypeEnum.Donor,
             //    Offer = new OfferModel {
-            //        Description = "Тест №1",
+            //        ContactName = "Огиенко Евгений",
             //        Category = CategoryEnum.FirstNegative,
-            //        City = 31,
-            //        Contact = "+7 (910) 745 06 76",
-            //        Name = "Огиенко Е.Е."
-            //    }
-            //});
-
-            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
-            //    Type = OfferTypeEnum.Donor,
-            //    Offer = new OfferModel {
-            //        Description = "Тест №2",
-            //        Category = CategoryEnum.FirstPositive,
-            //        City = 31,
-            //        Contact = "+7 (910) 745 06 76",
-            //        Name = "Огиенко Е.Е."
-            //    }
-            //});
-
-            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
-            //    Type = OfferTypeEnum.Donor,
-            //    Offer = new OfferModel {
-            //        Description = "Тест №3",
-            //        Category = CategoryEnum.FourthNegative,
-            //        City = 2,
-            //        Contact = "+7 (910) 745 06 76",
-            //        Name = "Огиенко Е.Е."
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
             //    }
             //});
 
             //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
             //    Type = OfferTypeEnum.Recipient,
             //    Offer = new OfferModel {
-            //        Description = "Тест №4",
+            //        ContactName = "Огиенко Евгений",
             //        Category = CategoryEnum.FirstNegative,
-            //        City = 1,
-            //        Contact = "+7 (910) 745 06 76",
-            //        Name = "Огиенко Е.Е."
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
+            //    }
+            //});
+
+            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
+            //    Type = OfferTypeEnum.Donor,
+            //    Offer = new OfferModel {
+            //        ContactName = "Огиенко Евгений",
+            //        Category = CategoryEnum.FirstNegative,
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
             //    }
             //});
 
             //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
             //    Type = OfferTypeEnum.Recipient,
             //    Offer = new OfferModel {
-            //        Description = "Тест №5",
+            //        ContactName = "Огиенко Евгений",
             //        Category = CategoryEnum.FirstNegative,
-            //        City = 31,
-            //        Contact = "+7 (910) 745 06 76",
-            //        Name = "Огиенко Е.Е."
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
+            //    }
+            //});
+
+            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
+            //    Type = OfferTypeEnum.Donor,
+            //    Offer = new OfferModel {
+            //        ContactName = "Огиенко Евгений",
+            //        Category = CategoryEnum.FirstNegative,
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
+            //    }
+            //});
+
+            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
+            //    Type = OfferTypeEnum.Recipient,
+            //    Offer = new OfferModel {
+            //        ContactName = "Огиенко Евгений",
+            //        Category = CategoryEnum.FirstNegative,
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
+            //    }
+            //});
+
+            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
+            //    Type = OfferTypeEnum.Donor,
+            //    Offer = new OfferModel {
+            //        ContactName = "Огиенко Евгений",
+            //        Category = CategoryEnum.FirstNegative,
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
+            //    }
+            //});
+
+            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
+            //    Type = OfferTypeEnum.Recipient,
+            //    Offer = new OfferModel {
+            //        ContactName = "Огиенко Евгений",
+            //        Category = CategoryEnum.FirstNegative,
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
+            //    }
+            //});
+
+            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
+            //    Type = OfferTypeEnum.Donor,
+            //    Offer = new OfferModel {
+            //        ContactName = "Огиенко Евгений",
+            //        Category = CategoryEnum.FirstNegative,
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
+            //    }
+            //});
+
+            //BloodSearchModelsRemoteProvider.AddOfferSync(new AddOfferModel {
+            //    Type = OfferTypeEnum.Recipient,
+            //    Offer = new OfferModel {
+            //        ContactName = "Огиенко Евгений",
+            //        Category = CategoryEnum.FirstNegative,
+            //        DateOfBirth = DateTime.Now,
+            //        Weight = 80,
+            //        Healthy = true,
+            //        Description = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест",
+            //        Phone = StringExtensions.ParsePhone("+7 (910) 745 06 76"),
+            //        Email = "ogienko@gmail.com",
+            //        GeoCoderMeta = new BloodSearch.Models.Api.Models.Geo.GeoCoderMeta {
+            //            FormattedAddress = "Россия, Белгород",
+            //            Point = new BloodSearch.Models.Api.Models.Geo.GeoPoint {
+            //                Lat = 44.23,
+            //                Lng = 23.22
+            //            }
+            //        }
             //    }
             //});
 

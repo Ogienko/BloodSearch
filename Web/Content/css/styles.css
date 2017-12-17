@@ -675,6 +675,29 @@ select {
       .pagination__arrow--next::before {
         background-image: url("/content/img/pagination-arrow-next-blue.svg"); }
 
+.form-additem {
+  padding: 2rem 3rem;
+  margin-bottom: 2rem; }
+  .form-additem__title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #000; }
+  .form-additem__group {
+    padding-top: 3rem; }
+    .form-additem__group label {
+      font-size: 1.6rem; }
+  .form-additem__group-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1.8rem; }
+    .form-additem__group-row__col {
+      flex-grow: 1;
+      font-size: 1.6rem;
+      color: #000; }
+    .form-additem__group-row__col_label {
+      max-width: 19.6rem;
+      padding-right: 1.4rem; }
+
 .search {
   margin-bottom: 2.5rem; }
   .search-content {

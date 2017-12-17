@@ -293,6 +293,7 @@
     <Content Include="Content\css\pages\offer\card.scss" />
     <Content Include="Content\css\pages\search-items\gallery.scss" />
     <Content Include="Content\css\pages\add-item\add-item.scss" />
+    <Content Include="Content\css\pages\add-item\form-additem.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
