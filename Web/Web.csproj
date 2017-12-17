@@ -153,6 +153,7 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\SearchItemsController.cs" />
+    <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -312,6 +313,7 @@
     <Content Include="Views\SearchItems\Index.cshtml" />
     <Content Include="Views\SearchItems\_PaginationPartial.cshtml" />
     <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\StaticContent\Stations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

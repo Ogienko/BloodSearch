@@ -58,6 +58,16 @@ namespace Web {
                     httpMethod = new HttpMethodConstraint("GET")
                 }
             );
+
+            routes.MapRoute(
+                name: "Stations",
+                url: "stations/",
+                defaults: new {
+                    controller = "StaticContent",
+                    action = "Stations",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
+            );
         }
     }
 }
