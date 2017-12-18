@@ -1,10 +1,5 @@
 ﻿using BloodSearch.Core.Models;
 using BloodSearch.Models.Api.Models.Auth.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Web.Extensions;
 using Web.Infrastructure.Authorization;
@@ -22,16 +17,18 @@ namespace Web.Controllers.Api {
 
         [Route("login/", Name = RouteNameApiLogin)]
         public LoginResult Login(LoginViewModel request) {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) {
                 return ModelState.GetLoginResult();
+            }
 
             return MembershipService.Login(request.Email, request.Password);
         }
 
         [Route("registration/", Name = RouteNameApiRegistration)]
         public BaseResponse Registration(RegisterViewModel request) {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) {
                 return ModelState.GetBaseResponse();
+            }
 
             return MembershipService.Registration(request.Email, request.Password, request.Name, request.Phone);
         }

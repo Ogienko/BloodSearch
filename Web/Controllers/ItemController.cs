@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace Web.Controllers {
 
-    public class ItemController : Controller {
+    public class ItemController : BaseController {
 
         public ActionResult Index(long id) {
             var model = new GetOfferResult();

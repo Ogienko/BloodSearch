@@ -61,6 +61,16 @@ namespace Web {
             );
 
             routes.MapRoute(
+                name: "Logout",
+                url: "logout/",
+                defaults: new {
+                    controller = "Account",
+                    action = "Logout",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
+            );
+
+            routes.MapRoute(
                 name: "Stations",
                 url: "stations/",
                 defaults: new {

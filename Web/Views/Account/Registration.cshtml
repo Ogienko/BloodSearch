@@ -1,77 +1,66 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Регистрация</title>
+    <meta charset="UTF-8">
+    <title>Регистрация — BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-    @Html.Partial("_Header")
+
+    @Html.Partial("_Header", 0)
+
     <main>
         <div class="wrap">
-            <div class="frame shadow">
-                <div class="form-add-item-group">
+            <div class="frame shadow form-additem">
 
-                    <h1 class="form-title">Регистрация</h1>
+                <h1>Регистрация</h1>
 
-                    <div class="form-add-item-group__item">
-                        <div class="form-add-item-group__title-container">
+                <form id="registration-form" method="post">
+                    <label for="Email">E-mail:</label>
+                    <input type="text" name="Email" required />
 
-                            <p class="form-add-item-group__title">E-mail</p>
-                        </div>
-                        <div class="form-add-item-group__control-container">
-                            <input type="text" class="field input" placeholder="E-mail" name="email">
-                            <div class="validationMessage"></div>
-                        </div>
-                    </div>
+                    <label for="Name">Имя:</label>
+                    <input type="text" name="Name" required />
 
-                    <div class="form-add-item-group__item">
-                        <div class="form-add-item-group__title-container">
-                            <p class="form-add-item-group__title">Пароль</p>
-                        </div>
-                        <div class="form-add-item-group__control-container">
-                            <input type="password" class="field input" placeholder="Пароль" name="password" >
-                            <div class="validationMessage"></div>
-                        </div>
-                    </div>
-                    <div class="form-add-item-group__item">
-                        <div class="form-add-item-group__title-container">
-                            <p class="form-add-item-group__title">Подтверждение пароля</p>
-                        </div>
-                        <div class="form-add-item-group__control-container">
-                            <input type="password" class="field input" placeholder="Пароль" name="confirmPassword">
-                            <div class="validationMessage"></div>
-                        </div>
-                    </div>
+                    <label for="Phone">Телефон:</label>
+                    <input type="text" name="Phone" />
 
+                    <label for="Password">Пароль:</label>
+                    <input type="password" name="Password" required />
 
-                    <div class="form-add-item-group__item">
-                        <div class="form-add-item-group__title-container">
-                            <p class="form-add-item-group__title"></p>
-                        </div>
-                        <div class="form-add-item-group__control-container">
-                            <button class="btn btn--white main-filters__show-offers-btn btn--blue">Зарегистрировать</button>
-                        </div>
-                    </div>
-
-                    <div class="form-add-item-group__item">
-                        <div class="form-add-item-group__title-container">
-                            <p class="form-add-item-group__title"></p>
-                        </div>
-                        <div class="form-add-item-group__control-container">
-                            <a class="link--blue" href="/login/">Войти</a>
-                        </div>
-                    </div>
-                </div>
+                    <input type="submit" />
+                </form>
             </div>
         </div>
     </main>
+
     @Html.Partial("_Footer")
+
+    <script type="text/javascript">
+        $(function () {
+            $('#registration-form').submit(function (event) {
+                var data = {
+                    Email: $("input[name='Email']").val(),
+                    Name: $("input[name='Name']").val(),
+                    Phone: $("input[name='Phone']").val(),
+                    Password: $("input[name='Password']").val(),
+                }
+                $.post('/api/account/registration/', data, function (res) {
+                    if (res.success) {
+                        location.href = '/';
+                    }
+                    else if (res['err-messages']) {
+                        alert('Ошибка');
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
 </body>
 </html>

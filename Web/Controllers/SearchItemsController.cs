@@ -7,7 +7,7 @@ using Web.Models.SearchItems;
 
 namespace Web.Controllers {
 
-    public class SearchItemsController : Controller {
+    public class SearchItemsController : BaseController {
 
         public ActionResult Index(QueryParameters parameters) {
 

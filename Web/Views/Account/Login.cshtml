@@ -1,49 +1,58 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Вход</title>
+    <meta charset="UTF-8">
+    <title>Войти — BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-    @Html.Partial("_Header")
+
+    @Html.Partial("_Header", 0)
+
     <main>
         <div class="wrap">
-            <div class="search">
-                <div class="frame shadow search">
-                    <input type="text" placeholder="Город..." />
-                    <input type="button" value="Поиск" />
-                </div>
+            <div class="frame shadow form-additem">
+
+                <h1>Войти</h1>
+
+                <form id="registration-form" method="post">
+                    <label for="Email">E-mail:</label>
+                    <input type="text" name="Email" required />
+
+                    <label for="Password">Пароль:</label>
+                    <input type="password" name="Password" required />
+
+                    <input type="submit" />
+                </form>
             </div>
-
-            @*<div id="yadonor_widget_news">
-                    <script type="text/javascript">
-                        var widgetOptions = { count: 10, region: 0, widget_fontsize: '16', widget_fontfamily: 'DIN Pro', widget_colordate: '000', widget_colorlink: '0000FF' };
-                        (function() {
-                            var script = document.createElement('script');
-                            script.type = 'text/javascript';
-                            script.async = true;
-                            script.src = "http://www.yadonor.ru/scripts/widget.min.js";
-                            document.getElementsByTagName('head')[0].appendChild(script);
-                        })();
-                    </script>
-                </div>*@
-
-            <div class="frame shadow">
-                <h1>Добро пожаловать</h1>
-
-                <a href="/">Ссылка</a>
-                <p>Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</p>
-            </div>
-
         </div>
     </main>
+
     @Html.Partial("_Footer")
+
+    <script type="text/javascript">
+        $(function () {
+            $('#registration-form').submit(function (event) {
+                var data = {
+                    Email: $("input[name='Email']").val(),
+                    Password: $("input[name='Password']").val(),
+                }
+                $.post('/api/account/login/', data, function (res) {
+                    if (res.success) {
+                        location.href = '/';
+                    }
+                    else if (res['err-messages']) {
+                        alert('Ошибка');
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
 </body>
 </html>

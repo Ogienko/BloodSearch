@@ -4,7 +4,7 @@ using Web.Models;
 
 namespace Web.Controllers {
 
-    public class AddItemController : Controller {
+    public class AddItemController : BaseController {
 
         public ActionResult Index(long? id) {
 

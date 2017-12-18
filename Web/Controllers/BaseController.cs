@@ -2,6 +2,7 @@
 using Web.Infrastructure.Authorization;
 
 namespace Web.Controllers {
+
     public class BaseController : Controller {
 
         private WebUser _user;

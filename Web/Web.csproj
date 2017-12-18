@@ -177,7 +177,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Authorization\BaseViewPage.cs" />
     <Compile Include="Infrastructure\Authorization\MembershipService.cs" />
+    <Compile Include="Infrastructure\Authorization\WebAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\Authorization\WebUser.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
