@@ -767,7 +767,6 @@ select {
       width: 15rem; } }
   .offer-snippet-gallery__img {
     position: relative;
-    left: 50%;
     min-height: 100%; }
 
 .offer__card {

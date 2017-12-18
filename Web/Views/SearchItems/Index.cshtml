@@ -1,5 +1,6 @@
-﻿@using Web.Models.SearchItems;
+﻿@using Web.Models.SearchItems
 @using BloodSearch.Models.Api.Models.Offers;
+@using BloodSearch.Core.Extensions;
 
 @model SearchItemsIndexResponse
 
@@ -45,7 +46,7 @@
                                     <option value="2">O(I) Rh+</option>
                                     <option value="3">A(II) Rh−</option>
                                     <option value="4">A(II) Rh+</option>
-                                    <option value="5">B(III) Rh−<</option>
+                                    <option value="5">B(III) Rh-</option>
                                     <option value="6">B(III) Rh+</option>
                                     <option value="7">AB(IV) Rh−</option>
                                     <option value="8">AB(IV) Rh+</option>
@@ -71,25 +72,30 @@
                     @foreach (var item in Model.Items) {
                         <li class="listing__item">
                             <a href="/item/@item.Id" class="offer-snippet">
-
                                 <div class="offer-snippet-gallery">
-                                    <img src="~/Content/img/logo.png" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                    @if (item.Type == OfferTypeEnum.Donor) {
+                                        <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                    } else {
+                                        <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                    }
                                 </div>
 
                                 <div class="offer-snippet__content-box">
                                     <div class="offer-snippet__content">
                                         @if (item.Type == OfferTypeEnum.Donor) {
-                                            <h3>Донор</h3>
+                                            <h3>Донор крови</h3>
                                         } else {
-                                            <h3>Реципиент - требуется донор</h3>
+                                            <h3>Реципиенту требуется донор</h3>
                                         }
-                                        <span>@item.Offer.Category</span>
-                                        <p>@item.Offer.Description</p>
-                                        <span>Сроки: 05.05.2017-06.06.2017</span>
+
+                                        <p class="field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
+                                        <p class="field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
+
+                                        @*<span>Сроки: 05.05.2017-06.06.2017</span>*@
                                     </div>
-                                    @*<div class="offer-snippet__footer">
-                                        <span>Код региона: @item.Offer.City</span>
-                                    </div>*@
+                                    <div class="offer-snippet__footer">
+                                        <p>Адрес: <span>@item.Offer.GeoCoderMeta.FormattedAddress</span></p>
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -98,8 +104,8 @@
             </div>
 
             @*<aside class="right-column2">
-                <div class="btn btn--red back-to-filters"><span>Вернуться к фильтру</span></div>
-            </aside>*@
+                    <div class="btn btn--red back-to-filters"><span>Вернуться к фильтру</span></div>
+                </aside>*@
 
             <div class="frame">
                 @if (Model.PagingFilter.MaxPageNumber > 1) {
@@ -110,6 +116,12 @@
     </main>
 
     @Html.Partial("_Footer")
+
+    <style>
+        .field {
+            margin-top: 15px;
+        }
+    </style>
 
     <script>
         $(function () {
