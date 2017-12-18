@@ -7,7 +7,7 @@ namespace Web.Controllers.Api {
 
     [RoutePrefix("api/add-item")]
 
-    public class ApiAddItemController : ApiController {
+    public class ApiAddItemController : BaseApiController {
 
         public const string RouteNameApiSaveItem = "AddItemSaveItem";
 

@@ -165,16 +165,22 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddItemController.cs" />
+    <Compile Include="Controllers\Api\ApiAccountController.cs" />
     <Compile Include="Controllers\Api\ApiAddItemController.cs" />
+    <Compile Include="Controllers\Api\BaseApiController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\SearchItemsController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
+    <Compile Include="Extensions\ModelStateExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Authorization\MembershipService.cs" />
     <Compile Include="Infrastructure\Authorization\WebUser.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\AddItemRequest.cs" />
     <Compile Include="Models\Item\ItemModel.cs" />
     <Compile Include="Models\SearchItems\SearchItemsIndexResponse.cs" />
@@ -340,6 +346,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\MainPage\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
