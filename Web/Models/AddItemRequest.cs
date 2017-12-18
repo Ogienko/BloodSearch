@@ -28,7 +28,7 @@ namespace Web.Models {
 
         public string Email { get; set; }
 
-        public GeoCoderMeta GeoCoderMeta { get; set; }
+        public GeoAddress GeoAddress { get; set; }
 
         public AddOfferModel ToAddOfferModel(int? userId = null) {
             return new AddOfferModel {
@@ -44,7 +44,7 @@ namespace Web.Models {
                     Description = Description,
                     Phone = StringExtensions.ParsePhone(Phone),
                     Email = Email,
-                    GeoCoderMeta = GeoCoderMeta
+                    GeoAddress = GeoAddress
                 }
             };
         }
@@ -61,7 +61,7 @@ namespace Web.Models {
                 Description = getOfferResult.Offer.Description,
                 Phone = getOfferResult.Offer.Phone.FormatedNumber,
                 Email = getOfferResult.Offer.Email,
-                GeoCoderMeta = getOfferResult.Offer.GeoCoderMeta
+                GeoAddress = getOfferResult.Offer.GeoAddress
             };
         }
     }

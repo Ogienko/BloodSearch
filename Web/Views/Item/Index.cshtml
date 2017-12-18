@@ -84,7 +84,7 @@
         $(function () {
             ymaps.ready(function () {
                 myMap = new ymaps.Map("myMap", {
-                    center: [50.595660, 36.587223],
+                    center: [@Model.Offer.GeoAddress.Point.Lat, @Model.Offer.GeoAddress.Point.Lng],
                     zoom: 10
                 });
 
