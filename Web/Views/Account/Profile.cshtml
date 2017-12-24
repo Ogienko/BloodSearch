@@ -1,0 +1,91 @@
+﻿@using Web.Models.SearchItems
+@using BloodSearch.Models.Api.Models.Offers;
+@using BloodSearch.Core.Extensions;
+
+@model ProfileIndexResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль — BloodSearch.com</title>
+    <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    @Html.Partial("_Header", 2)
+    <main>
+        <div class="wrap">
+
+            <div class="frame shadow search main-filters">
+                <h1>Личная информация</h1>
+                <div>
+                    <p>Email: <span>@Model.Email</span></p>
+                    <p>Имя: <span>@Model.Name</span></p>
+                    <p>Телефон: <span>@Model.Phone</span></p>
+                </div>
+            </div>
+
+            <div>
+                <h1>Мои объявления</h1>
+                <ul class="listing">
+                    @foreach (var item in Model.Items) {
+                        <li class="listing__item">
+                            <div class="offer-snippet">
+                                <div class="offer-snippet-gallery">
+                                    @if (item.Type == OfferTypeEnum.Donor) {
+                                        <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                    } else {
+                                        <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                    }
+                                </div>
+
+                                <div class="offer-snippet__content-box">
+                                    <div class="offer-snippet__content">
+                                        @if (item.Type == OfferTypeEnum.Donor) {
+                                            <h3>Донор крови</h3>
+                                        } else {
+                                            <h3>Реципиенту требуется донор</h3>
+                                        }
+
+                                        <p class="field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
+                                        <p class="field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
+
+                                        <p class="field">@item.Offer.Description</p>
+
+                                        @*<span>Сроки: 05.05.2017-06.06.2017</span>*@
+                                    </div>
+                                    <div class="offer-snippet__footer">
+                                        <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
+                                        <a href="/item/@item.Id/">Открыть</a>
+                                        <a href="/additem/@item.Id/">Редактировать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    @Html.Partial("_Footer")
+
+    <style>
+        .field {
+            margin-top: 15px;
+        }
+    </style>
+
+    <script>
+        $(function () {
+
+        });
+    </script>
+</body>
+</html>

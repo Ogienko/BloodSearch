@@ -1,11 +1,14 @@
-﻿using System;
+﻿using BloodSearch.Models.Api;
+using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Web.Infrastructure.Authorization;
+using Web.Models.SearchItems;
 
 namespace Web.Controllers {
 
-    public class AccountController : Controller {
+    public class AccountController : BaseController {
 
         public ActionResult Login() {
             return View();
@@ -34,7 +37,15 @@ namespace Web.Controllers {
 
         [WebAuthorize]
         public new ActionResult Profile() {
-            return View();
+
+            var model = new ProfileIndexResponse {
+                Email = User.Email,
+                Name = User.Name,
+                Phone = User.Phone,
+                Items = BloodSearchModelsRemoteProvider.GetOffersByUser(User.UserId)
+            };
+
+            return View(model);
         }
     }
 }

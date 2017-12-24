@@ -71,6 +71,16 @@ namespace Web {
             );
 
             routes.MapRoute(
+                name: "Profile",
+                url: "profile/",
+                defaults: new {
+                    controller = "Account",
+                    action = "Profile",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
+            );
+
+            routes.MapRoute(
                 name: "Stations",
                 url: "stations/",
                 defaults: new {
