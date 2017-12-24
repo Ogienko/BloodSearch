@@ -182,6 +182,7 @@
     <Compile Include="Infrastructure\Authorization\WebAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\Authorization\WebUser.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\ProfileViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\ProfileIndexResponse.cs" />
     <Compile Include="Models\AddItemRequest.cs" />
@@ -307,6 +308,9 @@
     <Content Include="Content\css\pages\add-item\form-additem.scss" />
     <Content Include="Content\css\pages\registration\registration.scss" />
     <Content Include="Content\css\pages\login\login.scss" />
+    <Content Include="Content\css\pages\profile\profile.scss" />
+    <Content Include="Content\css\pages\profile\personal-information.scss" />
+    <Content Include="Content\css\pages\profile\offers.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.min.js" />

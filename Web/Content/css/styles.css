@@ -928,3 +928,38 @@ select {
   display: block;
   margin: 0 auto; }
 
+.personal-information {
+  margin-bottom: 3rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+  background: #fff;
+  border-radius: 0.2rem;
+  padding: 2rem 3rem; }
+  .personal-information__title {
+    margin-bottom: 2rem; }
+  .personal-information__field {
+    line-height: 3rem;
+    margin-bottom: 2rem; }
+    .personal-information__field label {
+      font-weight: bold; }
+    .personal-information__field input {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #999;
+      border-radius: 0.2rem; }
+  .personal-information__error {
+    color: red;
+    font-weight: bold; }
+  .personal-information__btn {
+    display: block;
+    margin: 0 auto; }
+
+.offers__title {
+  margin: 0 0 2rem 3rem; }
+
+.offers__link {
+  padding-top: 0.5rem; }
+  .offers__link a {
+    text-decoration: none;
+    color: #ee2d24; }
+

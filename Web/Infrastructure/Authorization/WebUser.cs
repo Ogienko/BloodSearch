@@ -1,4 +1,10 @@
-﻿using static Web.Infrastructure.Authorization.MembershipService;
+﻿using BloodSearch.Core.Models;
+using BloodSearch.Models.Api;
+using BloodSearch.Models.Api.Models.Auth.Request;
+using System.Collections.Generic;
+using System.Web;
+using Web.Models.Account;
+using static Web.Infrastructure.Authorization.MembershipService;
 
 namespace Web.Infrastructure.Authorization {
 
@@ -25,5 +31,25 @@ namespace Web.Infrastructure.Authorization {
         public string Phone { get; set; }
 
         public bool IsAuthorized => !string.IsNullOrWhiteSpace(Email);
+
+        public BaseResponse UpdateProfileInfo(ProfileViewModel request) {
+
+            var user = BloodSearchModelsRemoteProvider.GetUserByContext(HttpContext.Current);
+            if (!user.Success) {
+                return new BaseResponse() {
+                    Success = false,
+                    ErrMessages = user.ErrMessages
+                };
+            }
+
+            var result = BloodSearchModelsRemoteProvider.EditUser(new EditUserRequest() {
+                Token = Token,
+                Name = request.Name,
+                UserId = UserId,
+                Phone = request.Phone
+            });
+
+            return result;
+        }
     }
 }

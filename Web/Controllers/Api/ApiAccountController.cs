@@ -12,7 +12,6 @@ namespace Web.Controllers.Api {
 
         public const string RouteNameApiLogin = "LoginPost";
         public const string RouteNameApiRegistration = "RegistrationPost";
-        public const string RouteNameApiProfile = "ProfilePost";
         public const string RouteNameApiSaveProfile = "SaveProfilePost";
 
         [Route("login/", Name = RouteNameApiLogin)]
@@ -33,23 +32,9 @@ namespace Web.Controllers.Api {
             return MembershipService.Registration(request.Email, request.Password, request.Name, request.Phone);
         }
 
-        //[Route("profile/", Name = RouteNameApiProfile)]
-        //public BaseResponse<ProfileViewModel> GetProfile() {
-        //    var res = Auth.Api.AkulaAuth.GetUserByContext(HttpContext.Current);
-        //    if (!res.Success)
-        //        return new BaseResponse<ProfileViewModel>(res);
-
-        //    return new BaseResponse<ProfileViewModel>(new ProfileViewModel {
-        //        Email = res.Email,
-        //        Name = res.Name,
-        //        Phone = res.Phone
-        //    });
-        //}
-
-        //[Route("profile/save/", Name = RouteNameApiSaveProfile)]
-        //public BaseResponse SaveProfile(ProfileViewModel request) {
-        //    var res = User.UpdateProfileInfo(request);
-        //    return res;
-        //}
+        [Route("profile/save/", Name = RouteNameApiSaveProfile)]
+        public BaseResponse SaveProfile(ProfileViewModel request) {
+            return User.UpdateProfileInfo(request);
+        }
     }
 }

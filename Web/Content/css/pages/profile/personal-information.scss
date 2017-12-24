@@ -1,0 +1,38 @@
+﻿.personal-information {
+    margin-bottom: 3rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+    background: #fff;
+    border-radius: 0.2rem;
+    padding: 2rem 3rem;
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+    &__field {
+        line-height: 3rem;
+        margin-bottom: 2rem;
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid $gray;
+            border-radius: 0.2rem;
+        }
+    }
+
+    &__error {
+        color: red;
+        font-weight: bold;
+    }
+
+    &__btn {
+        display: block;
+        margin: 0 auto;
+    }
+}

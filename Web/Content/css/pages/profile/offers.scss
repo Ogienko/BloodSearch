@@ -1,0 +1,15 @@
+﻿.offers {
+
+    &__title {
+        margin: 0 0 2rem 3rem;
+    }
+
+    &__link {
+        padding-top: 0.5rem;
+
+        a {
+            text-decoration: none;
+            color: $red;
+        }
+    }
+}
