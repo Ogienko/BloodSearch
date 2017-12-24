@@ -418,14 +418,13 @@ a {
   color: #fff;
   font-size: 1.6rem;
   position: absolute;
-  width: 100%;
-  bottom: 0; }
+  width: 100%; }
   .footer__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     white-space: nowrap;
-    padding: 0.6rem 0; }
+    padding: 2rem 0; }
   .footer__col {
     display: flex; }
     .footer__col:first-child p + p {
@@ -458,8 +457,7 @@ a {
     display: flex; }
   .footer__copyright-company-name {
     position: relative;
-    margin-right: 0.5rem;
-    top: 0.5rem; }
+    margin-right: 0.5rem; }
   .footer__contacts {
     line-height: 2.6rem;
     text-align: right; }
