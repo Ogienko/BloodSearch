@@ -86,11 +86,11 @@
                 Phone: $("input[name='Phone']").val(),
                 Password: $("input[name='Password']").val(),
             }
-            $.post('/api/account/registration/', data, function (res) {
-                if (res.success) {
+            $.post('/api/account/registration/', data, function (result) {
+                if (result.success) {
                     location.href = '/profile/';
                 }
-                else if (res['err-messages']) {
+                else if (result['err-messages']) {
                     $('.registration-error').html('<p class="registration__field-error">Не удалось зарегистрироваться</p>')
                 }
             });

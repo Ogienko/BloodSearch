@@ -306,6 +306,7 @@
     <Content Include="Content\css\pages\add-item\add-item.scss" />
     <Content Include="Content\css\pages\add-item\form-additem.scss" />
     <Content Include="Content\css\pages\registration\registration.scss" />
+    <Content Include="Content\css\pages\login\login.scss" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.min.js" />

@@ -9,6 +9,7 @@
     <title>Войти — BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
 </head>
 <body>
 
@@ -16,18 +17,21 @@
 
     <main>
         <div class="wrap">
-            <div class="frame shadow form-additem">
-
-                <h1>Войти</h1>
-
-                <form id="registration-form" method="post">
-                    <label for="Email">E-mail:</label>
-                    <input type="text" name="Email" required />
-
-                    <label for="Password">Пароль:</label>
-                    <input type="password" name="Password" required />
-
-                    <input type="submit" />
+            <div class="login__wrap">
+                <h1 class="login__title">Форма для входа на сайт</h1>
+                <form id="login-form" class="login__form">
+                    <div class="login-error"></div>
+                    <div class="login__field">
+                        <label for="Email">Ваш адрес электронной почты <span class="login__required">*</span></label>
+                        <input type="text" name="Email" placeholder="Адрес электронной почты" />
+                        <span class="text-error"></span>
+                    </div>
+                    <div class="login__field">
+                        <label for="Password">Пароль <span class="login__required">*</span></label>
+                        <input type="password" name="Password" placeholder="Пароль" />
+                        <span class="text-error"></span>
+                    </div>
+                    <input type="submit" class="btn btn--red login__btn" value="Войти" />
                 </form>
             </div>
         </div>
@@ -37,22 +41,47 @@
 
     <script type="text/javascript">
         $(function () {
-            $('#registration-form').submit(function (event) {
-                var data = {
-                    Email: $("input[name='Email']").val(),
-                    Password: $("input[name='Password']").val(),
-                }
-                $.post('/api/account/login/', data, function (res) {
-                    if (res.success) {
-                        location.href = '/profile/';
+            $('#login-form').validate({
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6
                     }
-                    else if (res['err-messages']) {
-                        alert('Ошибка');
+                },
+                messages: {
+                    Email: {
+                        required: 'Введите адрес электронной почты',
+                        email: 'Введите корректный адрес электронной почты'
+                    },
+                    Password: {
+                        required: 'Введите пароль',
+                        minlength: $.validator.format('Пароль должен быть длиннее {0} символов')
                     }
-                });
-                event.preventDefault();
+                },
+                errorElement: 'span',
+                errorClass: 'login__field-error',
+                submitHandler: SendLoginData
             });
         });
+
+        function SendLoginData() {
+            var data = {
+                Email: $("input[name='Email']").val(),
+                Password: $("input[name='Password']").val(),
+            }
+            $.post('/api/account/login/', data, function (result) {
+                if (result.success) {
+                    location.href = '/profile/';
+                }
+                else if (result['err-messages']) {
+                    $('.login-error').html('<p class="login__field-error">Не удалось войти</p>')
+                }
+            });
+        }
     </script>
 </body>
 </html>

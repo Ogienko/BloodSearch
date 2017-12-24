@@ -891,3 +891,42 @@ select {
   display: block;
   margin: 0 auto; }
 
+.login__wrap {
+  width: 60%;
+  margin: 6rem auto; }
+
+.login__title {
+  text-align: center;
+  margin-bottom: 2rem; }
+
+.login__form {
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+  background: #fff;
+  border-radius: 0.2rem;
+  padding: 2rem 3rem; }
+
+.login__field {
+  line-height: 3rem;
+  margin-bottom: 2rem; }
+  .login__field label {
+    font-weight: bold; }
+  .login__field input {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #999;
+    border-radius: 0.2rem; }
+  .login__field-error {
+    color: red; }
+
+.login__required {
+  color: red; }
+
+.login__error {
+  color: red;
+  font-weight: bold; }
+
+.login__btn {
+  display: block;
+  margin: 0 auto; }
+
