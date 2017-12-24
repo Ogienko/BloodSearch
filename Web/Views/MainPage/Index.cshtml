@@ -25,32 +25,34 @@
             <div class="frame shadow search">
                 <div class="search-content">
                     <h1 class="search-title">Поиск объявлений</h1>
-                    <form id="filter" method="get" action="/search">
+                    <form method="get" action="/search/">
                         <div class="search-row">
-
                             <div class="search-row__item">
-                                <select name="Type">
-                                    <option disabled>Выберите тип объявления</option>
-                                    <option selected value="donor">Донор</option>
-                                    <option value="recipient">Реципиент</option>
+                                <h3 class="search-row__item-title">Тип объявления:</h3>
+                                <select id="type" name="Type">
+                                    <option selected value="3">Не выбрано</option>
+                                    <option value="1">Донор</option>
+                                    <option value="2">Реципиент</option>
                                 </select>
                             </div>
                             <div class="search-row__item">
-                                <select name="Cat">
-                                    <option selected disabled>Выберите группу крови</option>
+                                <h3 class="search-row__item-title">Категория крови:</h3>
+                                <select id="category" name="Cat">
+                                    <option selected>Не выбрано</option>
                                     <option value="1">O(I) Rh−</option>
                                     <option value="2">O(I) Rh+</option>
                                     <option value="3">A(II) Rh−</option>
                                     <option value="4">A(II) Rh+</option>
-                                    <option value="5">B(III) Rh−<</option>
+                                    <option value="5">B(III) Rh-</option>
                                     <option value="6">B(III) Rh+</option>
                                     <option value="7">AB(IV) Rh−</option>
                                     <option value="8">AB(IV) Rh+</option>
                                 </select>
                             </div>
                             <div class="search-row__item">
-                                <select name="Reg">
-                                    <option selected disabled>Выберите регион</option>
+                                <h3 class="search-row__item-title">Регион:</h3>
+                                <select id="address" name="Reg">
+                                    <option selected>Не выбрано</option>
                                     <option value="53000056">Адыгея</option>
                                     <option value="53000015">Алтайский край</option>
                                     <option value="53000016">Амурская область</option>
@@ -138,7 +140,7 @@
                                     <option value="53000092">Ярославская область</option>
                                 </select>
                             </div>
-                            <div class="search-row__item">
+                            <div class="search-row__item-btn">
                                 <input type="submit" class="btn btn--red search-btn" value="Поиск" />
                             </div>
                         </div>

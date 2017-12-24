@@ -23,25 +23,30 @@
     <main>
         <div class="wrap">
             <div class="search">
-                <h2>Всего найдено @Model.TotalCount объявления</h2>
+                @if (Model.TotalCount != 0) {
+                    <h1>Всего найдено @Model.TotalCount объявления</h1>
+                } else {
+                    <h1>По вашему запросу ничего не найдено</h1>
+                }
             </div>
 
-            <div class="frame shadow search main-filters">
+            <div class="frame shadow search">
                 <div class="search-content">
-                    <h2 class="search-title">Фильтр</h2>
-                    <form method="get" action="/search">
+                    <h1 class="search-title">Фильтр</h1>
+                    <form method="get" action="/search/">
                         <div class="search-row">
-
                             <div class="search-row__item">
-                                <select name="Type">
-                                    <option disabled>Выберите тип объявления</option>
-                                    <option @(Model.Filter.Type == OfferTypeEnum.Donor ? Html.Raw("selected") : Html.Raw("")) value="donor">Донор</option>
-                                    <option @(Model.Filter.Type == OfferTypeEnum.Recipient ? Html.Raw("selected") : Html.Raw("")) value="recipient">Реципиент</option>
+                                <h3 class="search-row__item-title">Тип объявления:</h3>
+                                <select id="type" name="Type">
+                                    <option value="3" selected>Не выбрано</option>
+                                    <option value="1">Донор</option>
+                                    <option value="2">Реципиент</option>
                                 </select>
                             </div>
                             <div class="search-row__item">
-                                <select name="Cat">
-                                    <option selected disabled>Выберите группу крови</option>
+                                <h3 class="search-row__item-title">Категория крови:</h3>
+                                <select id="category" name="Cat">
+                                    <option selected>Не выбрано</option>
                                     <option value="1">O(I) Rh−</option>
                                     <option value="2">O(I) Rh+</option>
                                     <option value="3">A(II) Rh−</option>
@@ -53,8 +58,9 @@
                                 </select>
                             </div>
                             <div class="search-row__item">
-                                <select name="Reg">
-                                    <option selected disabled>Выберите регион</option>
+                                <h3 class="search-row__item-title">Регион:</h3>
+                                <select id="address" name="Reg">
+                                    <option selected>Не выбрано</option>
                                     <option value="53000056">Адыгея</option>
                                     <option value="53000015">Алтайский край</option>
                                     <option value="53000016">Амурская область</option>
@@ -142,7 +148,7 @@
                                     <option value="53000092">Ярославская область</option>
                                 </select>
                             </div>
-                            <div class="search-row__item">
+                            <div class="search-row__item-btn">
                                 <input type="submit" class="btn btn--red search-btn" value="Поиск" />
                             </div>
                         </div>
@@ -173,10 +179,7 @@
 
                                         <p class="field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
                                         <p class="field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
-
                                         <p class="field">@item.Offer.Description</p>
-
-                                        @*<span>Сроки: 05.05.2017-06.06.2017</span>*@
                                     </div>
                                     <div class="offer-snippet__footer">
                                         <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
@@ -188,10 +191,6 @@
                 </ul>
             </div>
 
-            @*<aside class="right-column2">
-                    <div class="btn btn--red back-to-filters"><span>Вернуться к фильтру</span></div>
-                </aside>*@
-
             <div class="frame">
                 @if (Model.PagingFilter.MaxPageNumber > 1) {
                     @Html.Partial("_PaginationPartial", Model)
@@ -200,7 +199,32 @@
         </div>
     </main>
 
-    @Html.Partial("_Footer")
+    <footer class="footer">
+        <div class="main-page__content">
+            <div class="footer__content">
+                <div class="footer__col">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright-company">
+                            <div class="footer__copyright-company-name">
+                                <span>© 2017 BloodSearch, Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <nav class="footer__nav">
+                        <a class="footer__nav-item" href="/stations/">Пункты сдачи крови</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <p class="footer__contacts">
+                        <a href="mailto:support@bloodsearch.com">support@bloodsearch.com</a><br />
+                        8 910 745 06 76
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <style>
         .field {
@@ -210,7 +234,9 @@
 
     <script>
         $(function () {
-
+            $("#type option[value='@((int)Model.Filter.Type)']").attr('selected', 'selected');
+            $("#category option[value='@((int)Model.Filter.Categories.FirstOrDefault())']").attr('selected', 'selected');
+            $("#address option[value='@Model.Filter.RegionId']").attr('selected', 'selected');
         });
     </script>
 </body>

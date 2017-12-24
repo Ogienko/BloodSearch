@@ -620,11 +620,12 @@ a {
 select {
   width: 20rem;
   border-color: #ee2d24;
-  border-radius: 0.2rem; }
+  border-radius: 0.2rem;
+  height: 3.6rem; }
 
 .pagination {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0.6rem 0 0.7rem 0; }
@@ -763,9 +764,13 @@ select {
     margin-bottom: 1rem; }
   .search-row {
     display: flex;
-    justify-content: space-around; }
-    .search-row__item {
-      display: flex; }
+    justify-content: space-between;
+    margin-bottom: 2rem; }
+    .search-row__item-title {
+      margin-bottom: 1rem; }
+    .search-row__item-btn {
+      display: flex;
+      align-items: center; }
   .search-btn {
     width: 20rem; }
 

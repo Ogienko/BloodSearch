@@ -11,10 +11,19 @@
 
     &-row {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        margin-bottom: 2rem;
 
         &__item {
-            display: flex;
+
+            &-title {
+                margin-bottom: 1rem;
+            }
+
+            &-btn {
+                display: flex;
+                align-items: center;
+            }
         }
     }
 
