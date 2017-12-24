@@ -9,6 +9,8 @@
     <title>Регистрация — BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @Scripts.Render("~/bundles/inputmask")
 </head>
 <body>
 
@@ -16,24 +18,31 @@
 
     <main>
         <div class="wrap">
-            <div class="frame shadow form-additem">
-
-                <h1>Регистрация</h1>
-
-                <form id="registration-form" method="post">
-                    <label for="Email">E-mail:</label>
-                    <input type="text" name="Email" required />
-
-                    <label for="Name">Имя:</label>
-                    <input type="text" name="Name" required />
-
-                    <label for="Phone">Телефон:</label>
-                    <input type="text" name="Phone" />
-
-                    <label for="Password">Пароль:</label>
-                    <input type="password" name="Password" required />
-
-                    <input type="submit" />
+            <div class="registration__wrap">
+                <h1 class="registration__title">Форма для регистрации</h1>
+                <form id="registration-form" class="registration__form">
+                    <div class="registration-error"></div>
+                    <div class="registration__field">
+                        <label for="Email">Ваш адрес электронной почты <span class="registration__required">*</span></label>
+                        <input type="text" name="Email" placeholder="Адрес электронной почты" />
+                        <span class="text-error"></span>
+                    </div>
+                    <div class="registration__field">
+                        <label for="Name">Ваше имя</label>
+                        <input type="text" name="Name" placeholder="Имя" />
+                        <span class="text-error"></span>
+                    </div>
+                    <div class="registration__field">
+                        <label for="Phone">Ваш телефон</label>
+                        <input type="tel" name="Phone" data-inputmask="'mask': '+7 (999) 999-99-99'" placeholder="Телефон" />
+                        <span class="text-error"></span>
+                    </div>
+                    <div class="registration__field">
+                        <label for="Password">Пароль <span class="registration__required">*</span></label>
+                        <input type="password" name="Password" placeholder="Пароль" />
+                        <span class="text-error"></span>
+                    </div>
+                    <input type="submit" class="btn btn--red registration__btn" value="Зарегистрировать" />
                 </form>
             </div>
         </div>
@@ -43,24 +52,49 @@
 
     <script type="text/javascript">
         $(function () {
-            $('#registration-form').submit(function (event) {
-                var data = {
-                    Email: $("input[name='Email']").val(),
-                    Name: $("input[name='Name']").val(),
-                    Phone: $("input[name='Phone']").val(),
-                    Password: $("input[name='Password']").val(),
-                }
-                $.post('/api/account/registration/', data, function (res) {
-                    if (res.success) {
-                        location.href = '/';
+            $('#registration-form').validate({
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6
                     }
-                    else if (res['err-messages']) {
-                        alert('Ошибка');
+                },
+                messages: {
+                    Email: {
+                        required: 'Введите адрес электронной почты',
+                        email: 'Введите корректный адрес электронной почты'
+                    },
+                    Password: {
+                        required: 'Введите пароль',
+                        minlength: $.validator.format('Пароль должен быть длиннее {0} символов')
                     }
-                });
-                event.preventDefault();
+                },
+                errorElement: 'span',
+                errorClass: 'registration__field-error',
+                submitHandler: SendRegistrationData
             });
         });
+
+        function SendRegistrationData() {
+            var data = {
+                Email: $("input[name='Email']").val(),
+                Name: $("input[name='Name']").val(),
+                Phone: $("input[name='Phone']").val(),
+                Password: $("input[name='Password']").val(),
+            }
+            $.post('/api/account/registration/', data, function (res) {
+                if (res.success) {
+                    location.href = '/profile/';
+                }
+                else if (res['err-messages']) {
+                    $('.registration-error').html('<p class="registration__field-error">Не удалось зарегистрироваться</p>')
+                }
+            });
+        }
     </script>
 </body>
 </html>

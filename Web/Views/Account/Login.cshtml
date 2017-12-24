@@ -44,7 +44,7 @@
                 }
                 $.post('/api/account/login/', data, function (res) {
                     if (res.success) {
-                        location.href = '/';
+                        location.href = '/profile/';
                     }
                     else if (res['err-messages']) {
                         alert('Ошибка');

@@ -23,6 +23,16 @@ namespace Web {
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+            "~/Scripts/inputmask/inputmask.min.js",
+            "~/Scripts/inputmask/jquery.inputmask.min.js",
+            "~/Scripts/inputmask/inputmask.extensions.min.js",
+            "~/Scripts/inputmask/inputmask.date.extensions.min.js",
+            "~/Scripts/inputmask/inputmask.numeric.extensions.min.js",
+            "~/Scripts/inputmask/inputmask.phone.extensions.min.js",
+            "~/Scripts/inputmask/inputmask.regex.extensions.min.js",
+            "~/Scripts/inputmask/bindings/inputmask.binding.min.js"));
         }
     }
 }
