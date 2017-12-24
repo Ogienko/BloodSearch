@@ -14,7 +14,7 @@ namespace Web.Controllers.Api {
         [HttpPost]
         [Route("save/", Name = RouteNameApiSaveItem)]
         public AddOfferResult Save(AddItemRequest addItemRequest) {
-            var model = addItemRequest.ToAddOfferModel();
+            var model = addItemRequest.ToAddOfferModel(User.UserId);
             var result = BloodSearchModelsRemoteProvider.AddOfferSync(model);
             return result;
         }
