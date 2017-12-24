@@ -26,7 +26,7 @@
     <main>
         <div class="wrap">
             <div class="frame shadow add-item">
-                <h1 class="add-item__title">Разместить объявление</h1>
+                <h1 class="add-item__title">Подача объявления</h1>
                 <form id="add-item-form">
                     <div class="add-item-error"></div>
                     <div class="add-item__group">
@@ -244,12 +244,7 @@
                         </div>
                     </div>
 
-                    @if (Model.Id == 0) {
-                        <input type="submit" class="btn btn--red add-item__btn" value="Создать объявление" />
-
-                    } else {
-                        <input type="submit" class="btn btn--red add-item__btn" value="Сохранить объявление" />
-                    }
+                    <input type="submit" class="btn btn--red add-item__btn" value="Разместить объявление" />
                 </form>
             </div>
         </div>
