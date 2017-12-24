@@ -15,6 +15,8 @@
     <title>Подача объявления — BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @Scripts.Render("~/bundles/inputmask")
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;load=package.full"></script>
 </head>
 <body>
@@ -23,174 +25,231 @@
 
     <main>
         <div class="wrap">
-            <div class="frame shadow form-additem">
-
-                <h1>Разместить объявление</h1>
-
-                <form id="add-item-form" method="post">
-
-                    <div class="form-additem__group">
-                        <div class="form-additem__group-row">
-                            <div class="form-additem__group-row__col">
-                                <label for="name" class="">Имя:</label>
+            <div class="frame shadow add-item">
+                <h1 class="add-item__title">Разместить объявление</h1>
+                <form id="add-item-form">
+                    <div class="add-item-error"></div>
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Name">Имя<span class="add-item__required">*</span></label>
+                                </div>
                             </div>
-                            <div class="form-additem__group-row__col">
-                                <input id="name" name="Name" type="text" value="@Model.Name" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-additem__group">
-                        <div class="form-additem__group-row">
-                            <div class="form-additem__group-row__col">
-                                <label for="type" class="">Тип объявления:</label>
-                            </div>
-                            <div class="form-additem__group-row__col">
-                                <span><input type="radio" name="type" id="donor-type" value="donor" @(Model.Type == OfferTypeEnum.Donor ? "checked" : "") /> Донор</span>
-                                <span><input type="radio" name="type" id="recipient-type" value="recipient" @(Model.Type == OfferTypeEnum.Recipient ? "checked" : "") /> Реципиент</span>
+                            <div class="add-item__group-row__col add-item__group-row__col_field">
+                                <input name="Name" type="text" value="@Model.Name" />
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-additem__group">
-                        <label for="category" class="">Категория крови:</label>
-                        <select id="category" name="category">
-                            <option disabled>Выберите группу крови</option>
-                            <option value="1" @((int)Model.Category == 1 ? "selected" : "")>O(I) Rh−</option>
-                            <option value="2" @((int)Model.Category == 2 ? "selected" : "")>O(I) Rh+</option>
-                            <option value="3" @((int)Model.Category == 3 ? "selected" : "")>A(II) Rh−</option>
-                            <option value="4" @((int)Model.Category == 4 ? "selected" : "")>A(II) Rh+</option>
-                            <option value="5" @((int)Model.Category == 5 ? "selected" : "")>B(III) Rh−</option>
-                            <option value="6" @((int)Model.Category == 6 ? "selected" : "")>B(III) Rh+</option>
-                            <option value="7" @((int)Model.Category == 7 ? "selected" : "")>AB(IV) Rh−</option>
-                            <option value="8" @((int)Model.Category == 8 ? "selected" : "")>AB(IV) Rh+</option>
-                        </select>
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Type">Тип объявления<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_radio">
+                                <p><input type="radio" name="Type" id="donor-type" value="donor" @(Model.Type == OfferTypeEnum.Donor || Model.Id == 0 ? "checked" : "") />Донор</p>
+                                <p><input type="radio" name="Type" id="recipient-type" value="recipient" @(Model.Type == OfferTypeEnum.Recipient ? "checked" : "") />Реципиент</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-additem__group">
-                        <label for="DateOfBirth" class="">Дата рождения:</label>
-                        <input id="DateOfBirth" name="DateOfBirth" type="date" value="@Model.DateOfBirth.ToShortDateString()" />
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Category">Категория крови<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_field">
+                                <select id="category" name="Category">
+                                    <option selected disabled>Выберите группу крови</option>
+                                    <option value="1">O(I) Rh−</option>
+                                    <option value="2">O(I) Rh+</option>
+                                    <option value="3">A(II) Rh−</option>
+                                    <option value="4">A(II) Rh+</option>
+                                    <option value="5">B(III) Rh−</option>
+                                    <option value="6">B(III) Rh+</option>
+                                    <option value="7">AB(IV) Rh−</option>
+                                    <option value="8">AB(IV) Rh+</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-additem__group">
-                        <label for="Weight" class="">Вес:</label>
-                        <input id="Weight" name="Weight" type="text" value="@Model.Weight" />
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Address">Район<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_field">
+                                <select id="address" name="Address">
+                                    <option selected disabled>Выберите регион</option>
+                                    <option value="53000056">Адыгея</option>
+                                    <option value="53000015">Алтайский край</option>
+                                    <option value="53000016">Амурская область</option>
+                                    <option value="53000017">Архангельская область</option>
+                                    <option value="53000018">Астраханская область</option>
+                                    <option value="53000058">Башкортостан</option>
+                                    <option value="53000019">Белгородская область</option>
+                                    <option value="53000020">Брянская область</option>
+                                    <option value="53000059">Бурятия</option>
+                                    <option value="53000021">Владимирская область</option>
+                                    <option value="53000022">Волгоградская область</option>
+                                    <option value="53000023">Вологодская область</option>
+                                    <option value="53000024">Воронежская область</option>
+                                    <option value="53000060">Дагестан</option>
+                                    <option value="53000025">Еврейская автономная область</option>
+                                    <option value="53000026">Забайкальский край</option>
+                                    <option value="53000027">Ивановская область</option>
+                                    <option value="53000061">Ингушетия</option>
+                                    <option value="53000028">Иркутская область</option>
+                                    <option value="53000029">Кабардино-Балкария</option>
+                                    <option value="53000030">Калининградская область</option>
+                                    <option value="53000062">Калмыкия</option>
+                                    <option value="53000031">Калужская область</option>
+                                    <option value="53000032">Камчатский край</option>
+                                    <option value="53000033">Карачаево-Черкесия</option>
+                                    <option value="53000034">Кемеровская область</option>
+                                    <option value="53000035">Кировская область</option>
+                                    <option value="53000036">Костромская область</option>
+                                    <option value="53000037">Краснодарский край</option>
+                                    <option value="53000038">Красноярский край</option>
+                                    <option value="53000039">Курганская область</option>
+                                    <option value="53000040">Курская область</option>
+                                    <option value="53000041">Ленинградская область</option>
+                                    <option value="53000042">Липецкая область</option>
+                                    <option value="53000043">Магаданская область</option>
+                                    <option value="53000065">Марий Эл</option>
+                                    <option value="53000066">Мордовия</option>
+                                    <option value="53000094">Москва</option>
+                                    <option value="53000044">Московская область</option>
+                                    <option value="53000045">Мурманская область</option>
+                                    <option value="53000119">Ненецкий автономный округ</option>
+                                    <option value="53000046">Нижегородская область</option>
+                                    <option value="53000047">Новгородская область</option>
+                                    <option value="53000048">Новосибирская область</option>
+                                    <option value="53000049">Омская область</option>
+                                    <option value="53000050">Оренбургская область</option>
+                                    <option value="53000051">Орловская область</option>
+                                    <option value="53000052">Пензенская область</option>
+                                    <option value="53000053">Пермский край</option>
+                                    <option value="53000054">Приморский край</option>
+                                    <option value="53000055">Псковская область</option>
+                                    <option value="53000057">Республика Алтай</option>
+                                    <option value="53000063">Республика Карелия</option>
+                                    <option value="53000064">Республика Коми</option>
+                                    <option value="1444278541">Республика Крым</option>
+                                    <option value="53000072">Ростовская область</option>
+                                    <option value="53000073">Рязанская область</option>
+                                    <option value="53000074">Самарская область</option>
+                                    <option value="53152804">Санкт-Петербург</option>
+                                    <option value="53000075">Саратовская область</option>
+                                    <option value="53000076">Сахалинская область</option>
+                                    <option value="53000077">Свердловская область</option>
+                                    <option value="1443782437">Севастополь</option>
+                                    <option value="53000068">Северная Осетия</option>
+                                    <option value="53000078">Смоленская область</option>
+                                    <option value="53000079">Ставропольский край</option>
+                                    <option value="53000080">Тамбовская область</option>
+                                    <option value="53000069">Татарстан</option>
+                                    <option value="53000081">Тверская область</option>
+                                    <option value="53000082">Томская область</option>
+                                    <option value="53000083">Тульская область</option>
+                                    <option value="53000070">Тыва</option>
+                                    <option value="53000084">Тюменская область</option>
+                                    <option value="53000085">Удмуртия</option>
+                                    <option value="53000086">Ульяновская область</option>
+                                    <option value="53000087">Хабаровский край</option>
+                                    <option value="53000071">Хакасия</option>
+                                    <option value="53000120">Ханты-Мансийский автономный округ</option>
+                                    <option value="53000088">Челябинская область</option>
+                                    <option value="53000089">Чечня</option>
+                                    <option value="53000090">Чувашия</option>
+                                    <option value="53000091">Чукотский автономный округ</option>
+                                    <option value="53000067">Якутия</option>
+                                    <option value="53000121">Ямало-Ненецкий автономный округ</option>
+                                    <option value="53000092">Ярославская область</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-additem__group">
-                        <label for="Description" class="">Описание:</label>
-                        <textarea name="Description">@Model.Description</textarea>
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="DateOfBirth">Дата рождения<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_field">
+                                <input name="DateOfBirth" type="date" value="@Model.DateOfBirth.ToString("yyyy-MM-dd")" />
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-additem__group">
-                        <label for="Phone" class="">Телефон:</label>
-                        <input id="Phone" name="Phone" type="text" value="@Model.Phone" />
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Weight">Вес<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_field">
+                                <input name="Weight" type="text" value="@Model.Weight" />
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-additem__group">
-                        <label for="Email" class="">E-mail:</label>
-                        <input id="Email" name="Email" type="text" value="@Model.Email" />
+                    <div class="add-item__group">
+                        <div class="add-item__group-row add-item__group-row_vertically">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Description">Описание<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_textarea">
+                                <textarea name="Description" placeholder="Подробное описание">@Model.Description</textarea>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-additem__group">
-                        <label for="Address" class="">Район:</label>
-                        <select id="address" name="Address">
-                            <option selected disabled>Выберите регион</option>
-                            <option value="53000056">Адыгея</option>
-                            <option value="53000015">Алтайский край</option>
-                            <option value="53000016">Амурская область</option>
-                            <option value="53000017">Архангельская область</option>
-                            <option value="53000018">Астраханская область</option>
-                            <option value="53000058">Башкортостан</option>
-                            <option value="53000019">Белгородская область</option>
-                            <option value="53000020">Брянская область</option>
-                            <option value="53000059">Бурятия</option>
-                            <option value="53000021">Владимирская область</option>
-                            <option value="53000022">Волгоградская область</option>
-                            <option value="53000023">Вологодская область</option>
-                            <option value="53000024">Воронежская область</option>
-                            <option value="53000060">Дагестан</option>
-                            <option value="53000025">Еврейская автономная область</option>
-                            <option value="53000026">Забайкальский край</option>
-                            <option value="53000027">Ивановская область</option>
-                            <option value="53000061">Ингушетия</option>
-                            <option value="53000028">Иркутская область</option>
-                            <option value="53000029">Кабардино-Балкария</option>
-                            <option value="53000030">Калининградская область</option>
-                            <option value="53000062">Калмыкия</option>
-                            <option value="53000031">Калужская область</option>
-                            <option value="53000032">Камчатский край</option>
-                            <option value="53000033">Карачаево-Черкесия</option>
-                            <option value="53000034">Кемеровская область</option>
-                            <option value="53000035">Кировская область</option>
-                            <option value="53000036">Костромская область</option>
-                            <option value="53000037">Краснодарский край</option>
-                            <option value="53000038">Красноярский край</option>
-                            <option value="53000039">Курганская область</option>
-                            <option value="53000040">Курская область</option>
-                            <option value="53000041">Ленинградская область</option>
-                            <option value="53000042">Липецкая область</option>
-                            <option value="53000043">Магаданская область</option>
-                            <option value="53000065">Марий Эл</option>
-                            <option value="53000066">Мордовия</option>
-                            <option value="53000094">Москва</option>
-                            <option value="53000044">Московская область</option>
-                            <option value="53000045">Мурманская область</option>
-                            <option value="53000119">Ненецкий автономный округ</option>
-                            <option value="53000046">Нижегородская область</option>
-                            <option value="53000047">Новгородская область</option>
-                            <option value="53000048">Новосибирская область</option>
-                            <option value="53000049">Омская область</option>
-                            <option value="53000050">Оренбургская область</option>
-                            <option value="53000051">Орловская область</option>
-                            <option value="53000052">Пензенская область</option>
-                            <option value="53000053">Пермский край</option>
-                            <option value="53000054">Приморский край</option>
-                            <option value="53000055">Псковская область</option>
-                            <option value="53000057">Республика Алтай</option>
-                            <option value="53000063">Республика Карелия</option>
-                            <option value="53000064">Республика Коми</option>
-                            <option value="1444278541">Республика Крым</option>
-                            <option value="53000072">Ростовская область</option>
-                            <option value="53000073">Рязанская область</option>
-                            <option value="53000074">Самарская область</option>
-                            <option value="53152804">Санкт-Петербург</option>
-                            <option value="53000075">Саратовская область</option>
-                            <option value="53000076">Сахалинская область</option>
-                            <option value="53000077">Свердловская область</option>
-                            <option value="1443782437">Севастополь</option>
-                            <option value="53000068">Северная Осетия</option>
-                            <option value="53000078">Смоленская область</option>
-                            <option value="53000079">Ставропольский край</option>
-                            <option value="53000080">Тамбовская область</option>
-                            <option value="53000069">Татарстан</option>
-                            <option value="53000081">Тверская область</option>
-                            <option value="53000082">Томская область</option>
-                            <option value="53000083">Тульская область</option>
-                            <option value="53000070">Тыва</option>
-                            <option value="53000084">Тюменская область</option>
-                            <option value="53000085">Удмуртия</option>
-                            <option value="53000086">Ульяновская область</option>
-                            <option value="53000087">Хабаровский край</option>
-                            <option value="53000071">Хакасия</option>
-                            <option value="53000120">Ханты-Мансийский автономный округ</option>
-                            <option value="53000088">Челябинская область</option>
-                            <option value="53000089">Чечня</option>
-                            <option value="53000090">Чувашия</option>
-                            <option value="53000091">Чукотский автономный округ</option>
-                            <option value="53000067">Якутия</option>
-                            <option value="53000121">Ямало-Ненецкий автономный округ</option>
-                            <option value="53000092">Ярославская область</option>
-                        </select>
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Phone">Телефон<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_field">
+                                <input name="Phone" type="tel" value="@Model.Phone" data-inputmask="'mask': '+7 (999) 999-99-99'" placeholder="Телефон" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="add-item__group">
+                        <div class="add-item__group-row">
+                            <div class="add-item__group-row__col add-item__group-row__col_label">
+                                <div class="add-item__group-label">
+                                    <label for="Email">E-mail<span class="add-item__required">*</span></label>
+                                </div>
+                            </div>
+                            <div class="add-item__group-row__col add-item__group-row__col_field">
+                                <input name="Email" type="text" value="@Model.Email" placeholder="E-mail" />
+                            </div>
+                        </div>
                     </div>
 
                     @if (Model.Id == 0) {
-                        <input type="submit" value="Создать объявление" />
+                        <input type="submit" class="btn btn--red add-item__btn" value="Создать объявление" />
 
                     } else {
-                        <input type="submit" value="Сохранить объявление" />
+                        <input type="submit" class="btn btn--red add-item__btn" value="Сохранить объявление" />
                     }
-
                 </form>
             </div>
         </div>
@@ -200,58 +259,113 @@
 
     <script type="text/javascript">
         $(function () {
-            $('#add-item-form').submit(function (event) {
 
-                var data = {
-                    Id: @Model.Id,
-                    Name: $("input[name='Name']").val(),
-                    Type: $("#donor-type").attr("checked") ? 'donor' : 'recipient',
-                    Category: $("#category").val(),
-                    DateOfBirth: $("input[name='DateOfBirth']").val(),
-                    Weight: $("input[name='Weight']").val(),
-                    Description: $("textarea[name='Description']").val(),
-                    Phone: $("input[name='Phone']").val(),
-                    Email: $("input[name='Email']").val(),
-                    GeoAddress: {
-                        Id: 0,
-                        Address: '',
-                        Point: {
-                            Lat: 0,
-                            Lng: 0
-                        }
-                    }
-                }
+            $("#category option[value='@((int)Model.Category)']").attr('selected', 'selected');
 
-                var region = $('#address :selected').text();
-                var myGeocoder = ymaps.geocode(region);
-                myGeocoder.then(
-                    function (res) {
-                        var geoObject = res.geoObjects.get(0);
-                        var coordinates = geoObject.geometry.getCoordinates();
-                        data.GeoAddress.Id = geoObject.properties.get('metaDataProperty').GeocoderMetaData.id;
-                        data.GeoAddress.Address = geoObject.properties.get('metaDataProperty').GeocoderMetaData.text;
-                        data.GeoAddress.Point.Lat = coordinates[0];
-                        data.GeoAddress.Point.Lng = coordinates[1];
+            @if (Model.GeoAddress != null) {
+                @:$("#address option[value='@Model.GeoAddress.Id']").attr('selected', 'selected');
+            }
 
-                        $.post('/api/add-item/save/', data, function (res) {
-                            if (res.success) {
-                                location.href = '/profile/';
-                            }
-                            else if (res['err-messages']) {
-                                alert('Ошибка');
-                            }
-                        });
-
+            $('#add-item-form').validate({
+                rules: {
+                    Name: 'required',
+                    Category: 'required',
+                    Address: 'required',
+                    DateOfBirth: 'required',
+                    Weight: {
+                        required: true,
+                        digits: true
                     },
-                    function (err) {
-                        alert('Ошибка');
+                    Description: {
+                        required: true,
+                        minlength: 20
+                    },
+                    Phone: 'required',
+                    Email: {
+                        required: true,
+                        email: true
                     }
-                );
-
-                event.preventDefault();
+                },
+                messages: {
+                    Name: {
+                        required: 'Введите имя'
+                    },
+                    Category: {
+                        required: 'Выберите категорию крови'
+                    },
+                    Address: {
+                        required: 'Выберите район'
+                    },
+                    DateOfBirth: {
+                        required: 'Введите дату рождения'
+                    },
+                    Weight: {
+                        required: 'Введите вес',
+                        digits: 'Введите корректное значение веса'
+                    },
+                    Description: {
+                        required: 'Заполните описание',
+                        minlength: $.validator.format('Описание должно быть длиннее {0} символов')
+                    },
+                    Phone: {
+                        required: 'Введите номер телефона'
+                    },
+                    Email: {
+                        required: 'Введите адрес электронной почты',
+                        email: 'Введите корректный адрес электронной почты'
+                    }
+                },
+                errorElement: 'span',
+                errorClass: 'add-item__group-row__col_field-error',
+                submitHandler: SendAddItemData
             });
         });
-    </script>
 
+        function SendAddItemData() {
+            var data = {
+                Id: @Model.Id,
+                Name: $("input[name='Name']").val(),
+                Type: $("#donor-type").attr("checked") ? 'donor' : 'recipient',
+                Category: $("#category").val(),
+                DateOfBirth: $("input[name='DateOfBirth']").val(),
+                Weight: $("input[name='Weight']").val(),
+                Description: $("textarea[name='Description']").val(),
+                Phone: $("input[name='Phone']").val(),
+                Email: $("input[name='Email']").val(),
+                GeoAddress: {
+                    Id: 0,
+                    Address: '',
+                    Point: {
+                        Lat: 0,
+                        Lng: 0
+                    }
+                }
+            }
+
+            var region = $('#address :selected').text();
+            var myGeocoder = ymaps.geocode(region);
+            myGeocoder.then(
+                function (res) {
+                    var geoObject = res.geoObjects.get(0);
+                    var coordinates = geoObject.geometry.getCoordinates();
+                    data.GeoAddress.Id = geoObject.properties.get('metaDataProperty').GeocoderMetaData.id;
+                    data.GeoAddress.Address = geoObject.properties.get('metaDataProperty').GeocoderMetaData.text;
+                    data.GeoAddress.Point.Lat = coordinates[0];
+                    data.GeoAddress.Point.Lng = coordinates[1];
+                    $.post('/api/add-item/save/', data, function (result) {
+                        if (result.success) {
+                            location.href = '/profile/';
+                        }
+                        else if (result['err-messages']) {
+                            $('.add-item-error').html('<p class="add-item__group-row__col_field-error">Не удалось сохранить объявление</p>');
+                        }
+                    });
+                },
+                function (err) {
+                    $('.add-item-error').html('<p class="add-item__group-row__col_field-error">Не удалось сохранить объявление</p>');
+                }
+            );
+        }
+    </script>
 </body>
 </html>

@@ -22,6 +22,10 @@ namespace Web.Controllers {
                 } catch {
                     return Redirect("/");
                 }
+            } else {
+                model.Name = User.Name;
+                model.Phone = User.Phone;
+                model.Email = User.Email;
             }
 
             return View(model);

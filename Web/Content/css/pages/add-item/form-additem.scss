@@ -1,25 +1,43 @@
-﻿.form-additem {
+﻿.add-item {
     padding: 2rem 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 
     &__title {
         font-size: 2.4rem;
         font-weight: bold;
-        color: #000;
+        color: black;
+        margin-bottom: 2rem;
     }
 
     &__group {
-        padding-top: 3rem;
+        margin-bottom: 3rem;
 
-        label {
-            font-size: 1.6rem;
+        &-label {
+            display: flex;
+            min-height: 3rem;
+            align-items: center;
+        }
+
+        input {
+            display: block;
+            width: 26rem;
+            padding: 0.8rem;
+            border: 1px solid $gray;
+            border-radius: 0.2rem;
+        }
+
+        select {
+            display: block;
+            width: 26rem;
+            padding: 0.8rem;
+            border: 1px solid $gray;
+            border-radius: 0.2rem;
         }
     }
 
     &__group-row {
         display: flex;
         justify-content: flex-start;
-        margin-bottom: 1.8rem;
 
         &__col {
             flex-grow: 1;
@@ -31,5 +49,73 @@
             max-width: 19.6rem;
             padding-right: 1.4rem;
         }
+
+        &__col_field {
+            max-width: 26rem;
+        }
+
+        &__col_field-error {
+            display: block;
+            color: red;
+            margin-top: 0.5rem;
+        }
+
+        &__col_radio {
+            max-width: 26rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                display: flex;
+                font-size: 1.4rem;
+            }
+
+            input {
+                width: auto;
+                margin-top: 0.2rem;
+                margin-right: 1rem;
+            }
+        }
+
+        &__col_textarea {
+            position: relative;
+            max-width: 705px;
+
+            textarea {
+                padding: 1.8rem;
+                height: 20rem;
+                resize: none;
+                line-height: 2rem;
+                width: 45.5rem;
+            }
+        }
+
+        &_vertically {
+            display: block;
+        }
+
+        &_vertically &__col_label {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__required {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 0;
+        color: $red;
+        margin-left: 0.6rem;
+    }
+
+    &__error {
+        color: red;
+        font-weight: bold;
+    }
+
+    &__btn {
+        display: block;
+        margin: 0 auto;
     }
 }

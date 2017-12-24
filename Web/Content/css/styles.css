@@ -674,28 +674,86 @@ select {
       .pagination__arrow--next::before {
         background-image: url("/content/img/pagination-arrow-next-blue.svg"); }
 
-.form-additem {
+.add-item {
   padding: 2rem 3rem;
-  margin-bottom: 2rem; }
-  .form-additem__title {
+  margin-bottom: 2.5rem; }
+  .add-item__title {
     font-size: 2.4rem;
     font-weight: bold;
-    color: #000; }
-  .form-additem__group {
-    padding-top: 3rem; }
-    .form-additem__group label {
-      font-size: 1.6rem; }
-  .form-additem__group-row {
+    color: black;
+    margin-bottom: 2rem; }
+  .add-item__group {
+    margin-bottom: 3rem; }
+    .add-item__group-label {
+      display: flex;
+      min-height: 3rem;
+      align-items: center; }
+    .add-item__group input {
+      display: block;
+      width: 26rem;
+      padding: 0.8rem;
+      border: 1px solid #999;
+      border-radius: 0.2rem; }
+    .add-item__group select {
+      display: block;
+      width: 26rem;
+      padding: 0.8rem;
+      border: 1px solid #999;
+      border-radius: 0.2rem; }
+  .add-item__group-row {
     display: flex;
-    justify-content: flex-start;
-    margin-bottom: 1.8rem; }
-    .form-additem__group-row__col {
+    justify-content: flex-start; }
+    .add-item__group-row__col {
       flex-grow: 1;
       font-size: 1.6rem;
       color: #000; }
-    .form-additem__group-row__col_label {
+    .add-item__group-row__col_label {
       max-width: 19.6rem;
       padding-right: 1.4rem; }
+    .add-item__group-row__col_field {
+      max-width: 26rem; }
+    .add-item__group-row__col_field-error {
+      display: block;
+      color: red;
+      margin-top: 0.5rem; }
+    .add-item__group-row__col_radio {
+      max-width: 26rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .add-item__group-row__col_radio p {
+        display: flex;
+        font-size: 1.4rem; }
+      .add-item__group-row__col_radio input {
+        width: auto;
+        margin-top: 0.2rem;
+        margin-right: 1rem; }
+    .add-item__group-row__col_textarea {
+      position: relative;
+      max-width: 705px; }
+      .add-item__group-row__col_textarea textarea {
+        padding: 1.8rem;
+        height: 20rem;
+        resize: none;
+        line-height: 2rem;
+        width: 45.5rem; }
+    .add-item__group-row_vertically {
+      display: block; }
+    .add-item__group-row_vertically .add-item__group-row__col_label {
+      margin-bottom: 1rem; }
+  .add-item__required {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 0;
+    color: #ee2d24;
+    margin-left: 0.6rem; }
+  .add-item__error {
+    color: red;
+    font-weight: bold; }
+  .add-item__btn {
+    display: block;
+    margin: 0 auto; }
 
 .search {
   margin-bottom: 2.5rem; }
@@ -856,7 +914,8 @@ select {
 
 .registration__title {
   text-align: center;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  color: black; }
 
 .registration__form {
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
@@ -876,10 +935,16 @@ select {
     border: 1px solid #999;
     border-radius: 0.2rem; }
   .registration__field-error {
-    color: red; }
+    color: red;
+    margin-top: 0.5rem; }
 
 .registration__required {
-  color: red; }
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 0;
+  color: #ee2d24;
+  margin-left: 0.6rem; }
 
 .registration__error {
   color: red;
@@ -895,7 +960,8 @@ select {
 
 .login__title {
   text-align: center;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  color: black; }
 
 .login__form {
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
@@ -915,10 +981,16 @@ select {
     border: 1px solid #999;
     border-radius: 0.2rem; }
   .login__field-error {
-    color: red; }
+    color: red;
+    margin-top: 0.5rem; }
 
 .login__required {
-  color: red; }
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 0;
+  color: #ee2d24;
+  margin-left: 0.6rem; }
 
 .login__error {
   color: red;
@@ -935,7 +1007,8 @@ select {
   border-radius: 0.2rem;
   padding: 2rem 3rem; }
   .personal-information__title {
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    color: black; }
   .personal-information__field {
     line-height: 3rem;
     margin-bottom: 2rem; }
@@ -955,7 +1028,11 @@ select {
     margin: 0 auto; }
 
 .offers__title {
-  margin: 0 0 2rem 3rem; }
+  margin: 0 0 2rem 3rem;
+  color: black; }
+
+.offers__field {
+  margin-top: 15px; }
 
 .offers__link {
   padding-top: 0.5rem; }

@@ -8,6 +8,7 @@
     &__title {
         text-align: center;
         margin-bottom: 2rem;
+        color: black;
     }
 
     &__form {
@@ -35,11 +36,17 @@
 
         &-error {
             color: red;
+            margin-top: 0.5rem;
         }
     }
 
     &__required {
-        color: red;
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 0;
+        color: $red;
+        margin-left: 0.6rem;
     }
 
     &__error {
