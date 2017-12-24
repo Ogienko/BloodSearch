@@ -184,7 +184,13 @@
                         </select>
                     </div>
 
-                    <input type="submit" value="Создать объявление" />
+                    @if (Model.Id == 0) {
+                        <input type="submit" value="Создать объявление" />
+
+                    } else {
+                        <input type="submit" value="Сохранить объявление" />
+                    }
+
                 </form>
             </div>
         </div>
@@ -197,6 +203,7 @@
             $('#add-item-form').submit(function (event) {
 
                 var data = {
+                    Id: @Model.Id,
                     Name: $("input[name='Name']").val(),
                     Type: $("#donor-type").attr("checked") ? 'donor' : 'recipient',
                     Category: $("#category").val(),
@@ -228,8 +235,7 @@
 
                         $.post('/api/add-item/save/', data, function (res) {
                             if (res.success) {
-                                alert('Объявление успешно добавлено!')
-                                location.href = '/';
+                                location.href = '/profile/';
                             }
                             else if (res['err-messages']) {
                                 alert('Ошибка');

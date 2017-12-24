@@ -12,7 +12,7 @@ namespace Web.Controllers {
                  model = BloodSearchModelsRemoteProvider.GetOffer(id);
             }
             catch {
-                return View("Error");
+                return Redirect("/");
             }
             return View(model);
         }

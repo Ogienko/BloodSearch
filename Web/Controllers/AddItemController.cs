@@ -13,8 +13,15 @@ namespace Web.Controllers {
             var model = new AddItemRequest();
 
             if (id.HasValue) {
-                var getOfferResult = BloodSearchModelsRemoteProvider.GetOffer(id.Value);
-                model = AddItemRequest.FromOfferResult(getOfferResult);
+                try {
+                    var getOfferResult = BloodSearchModelsRemoteProvider.GetOffer(id.Value);
+                    if (getOfferResult.UserId != User.UserId) {
+                        return Redirect("/");
+                    }
+                    model = AddItemRequest.FromOfferResult(getOfferResult);
+                } catch {
+                    return Redirect("/");
+                }
             }
 
             return View(model);
