@@ -845,37 +845,49 @@ select {
 
 .offer__card {
   background: #fff;
-  /*display: flex;*/
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 2rem 2rem 2rem;
-  margin-bottom: 2rem; }
+  padding: 2rem 2rem 2rem; }
+
+.offer__left-column {
+  width: 70%; }
+
+.offer__right-column {
+  width: 30%;
+  flex: none;
+  margin-left: 2rem; }
 
 .offer__header {
   display: flex;
   justify-content: space-between; }
 
 .offer__title {
+  color: black;
   font-size: 2.4rem;
   line-height: 2.4rem;
   margin-bottom: .6rem;
   font-weight: normal;
   padding-right: 3rem; }
 
-.offer__location {
-  display: block;
-  font-size: 1.6rem;
-  font-weight: normal;
-  line-height: 2rem;
-  padding-top: .2rem; }
-
 .offer__address {
   line-height: 2rem;
-  margin-bottom: 3.2rem; }
+  margin-bottom: 3rem; }
+
+.offer__field {
+  line-height: 2rem;
+  margin-bottom: 1rem; }
+  .offer__field p {
+    font-weight: bold; }
+  .offer__field span {
+    font-weight: normal; }
 
 .offer__description {
-  line-height: 2.06rem;
-  margin-bottom: 2.3rem; }
+  border-top: 1px solid #999;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  line-height: 2rem;
+  margin-bottom: 3rem; }
 
 .offer__phone-box {
   border: 1px solid #919191;
@@ -886,44 +898,22 @@ select {
   text-align: center; }
 
 .offer__phone-link {
-  border-bottom: 1px dotted;
+  display: inline-block;
+  padding-top: 1rem;
   color: #ee2d24;
   font-weight: bold;
-  margin-left: 2.4rem;
-  width: 18rem;
   position: relative;
   cursor: pointer; }
-  .offer__phone-link::before {
-    content: '';
-    /*background: no-repeat e('0 0 / 100% 100%') url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAYFBMVEUAAAB+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5yRI6SAAAAH3RSTlMAlz4D4IrEpPTw43UzD+vSnJBMGQa8uLJ5a1crk39cZYfE6AAAAMdJREFUOMuFktkOgyAQRZFNAdG61WqX+f+/bEMyHUwGPU8k9wSYmxGJoXmLMyoAaC9yuJ/lCXmRgy3kAZCRFzQgvWIFIHZWcCTUrGBJ2FjBAHITLJIe4FE4xkcUeECi3HV0WNTVFT4WhBl/sQqCH+QlCL6LofSI/Zcx88bk0VhiKsd0y3EHnw4NPf7yOlU/5UbbALLuNSTcpvJRyCB6md/RAYPJ/+EZoTnMYingm1HYWHmJZA85FbM/oeNzIgZNeQFprAcd0vkLBt0pW2jTxT8AAAAASUVORK5CYII=');*/
-    position: absolute;
-    right: 100%;
-    top: 50%;
-    margin-right: .6rem; }
 
 .offer__phone-contact {
   padding-top: 2.7rem;
   margin-bottom: 2.7rem; }
-  .offer__phone-contact_brand {
-    padding-top: 1rem;
-    margin-bottom: 2.7rem; }
 
-.offer__phone-brand-bottom-line {
-  height: .5rem; }
+.offer__map-box {
+  margin-bottom: 3rem; }
 
-.offer-phone-img {
-  height: 3.5rem; }
-  .offer-phone-img_top {
-    padding-left: .7rem; }
-    .offer-phone-img_top img {
-      max-width: 100%;
-      max-height: 3.5rem; }
-  .offer-phone-img_center {
-    margin-top: 1.9rem;
-    margin-bottom: 1.6rem; }
-    .offer-phone-img_center img {
-      margin: 0 auto;
-      width: 96px; }
+.offer__map {
+  height: 50rem; }
 
 .registration__wrap {
   width: 60%;
