@@ -197,6 +197,8 @@
     <Content Include="Content\css\styles.min.css">
       <DependentUpon>styles.css</DependentUpon>
     </Content>
+    <Content Include="Content\img\1.jpg" />
+    <Content Include="Content\img\2.jpg" />
     <Content Include="Content\img\donor.jpg" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\pagination-arrow-next-blue.svg" />

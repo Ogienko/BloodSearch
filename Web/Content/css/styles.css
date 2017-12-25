@@ -759,7 +759,7 @@ select {
 .search {
   margin-bottom: 2.5rem; }
   .search-content {
-    padding: 1.5rem; }
+    padding: 2rem 3rem; }
   .search-title {
     margin-bottom: 1rem; }
   .search-row {
@@ -777,12 +777,20 @@ select {
 .info {
   margin-bottom: 2.5rem; }
   .info-content {
-    padding: 1.5rem; }
+    padding: 2rem 3rem; }
   .info-title {
     margin-bottom: 1rem; }
   .info-table {
     text-align: center;
     margin: 0 auto; }
+  .info__block-title {
+    margin-bottom: 1rem;
+    font-weight: bold; }
+  .info__video {
+    margin: auto;
+    display: block;
+    width: 75rem;
+    height: 42rem; }
   .info-plus {
     color: #ee2d24;
     font-weight: bold; }

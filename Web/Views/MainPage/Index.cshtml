@@ -18,8 +18,8 @@
     <main>
         <div class="wrap">
             <div class="search shadow" id="slides">
-                <img src="http://placehold.it/940x400">
-                <img src="http://placehold.it/940x400">
+                <img src="~/Content/img/1.jpg">
+                <img src="~/Content/img/2.jpg">
             </div>
 
             <div class="frame shadow search">
@@ -151,10 +151,14 @@
             <div class="frame shadow info">
                 <div class="info-content">
                     <h1 class="info-title">Общая информация</h1>
-                    <p>BloodSearch - крупнейшай площадка для быстрого поиска донора крови. На данной площадке пользователи могут помогать нуждающимся. Требуется создать объявление.</p>
+                    <p>
+                        Донорством называют добровольную сдачу крови или ее компонентов.
+                        Отобранные ткани применяются в дальнейшем для научно-исследовательских работ, производства ингредиентов, лекарственных препаратов и другой медицинской продукции.
+                        Клиническое использование донорской крови состоит в ее переливании (или трансфузии) в лечебных целях другому человеку, которого называют реципиентом, а также для пополнения специальных банков. Согласно расчетам, на каждую тысячу населения должно приходиться от 40 человек из тех, кто может стать постоянными донорами.
+                    </p>
                     <br />
+                    <p class="info__block-title">Таблица совместимости крови</p>
                     <table border="1" class="info-table">
-                        <caption>Таблица совместимости</caption>
                         <tbody>
                             <tr>
                                 <th rowspan="2">Реципиент</th>
@@ -260,6 +264,9 @@
                             </tr>
                         </tbody>
                     </table>
+                    <br />
+                    <p class="info__block-title">Посмотрите видео</p>
+                    <iframe class="info__video" src="https://www.youtube.com/embed/z7pLD4rSURg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -284,7 +291,7 @@
                 play: {
                     active: true,
                     effect: "slide",
-                    interval: 5000,
+                    interval: 15000,
                     auto: true,
                     swap: true,
                     pauseOnHover: false,
@@ -295,7 +302,7 @@
             $('.slidesjs-stop').hide();
         });
 
-        
+
     </script>
 </body>
 </html>

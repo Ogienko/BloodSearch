@@ -2,7 +2,7 @@
     margin-bottom: 2.5rem;
 
     &-content {
-        padding: 1.5rem;
+        padding: 2rem 3rem;
     }
 
     &-title {
@@ -12,6 +12,18 @@
     &-table {
         text-align: center;
         margin: 0 auto;
+    }
+
+    &__block-title {
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    &__video {
+        margin: auto;
+        display: block;
+        width: 75rem;
+        height: 42rem;
     }
 
     &-plus {
