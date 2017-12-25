@@ -42,59 +42,61 @@
                 </form>
             </div>
 
-            <div class="offers">
-                <h1 class="offers__title">Мои объявления</h1>
-                <ul class="listing">
-                    @foreach (var item in Model.Items) {
-                        <li class="listing__item">
-                            <div class="offer-snippet">
-                                <div class="offer-snippet-gallery">
-                                    @if (item.Type == OfferTypeEnum.Donor) {
-                                        <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
-                                    } else {
-                                        <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
-                                    }
-                                </div>
-
-                                <div class="offer-snippet__content-box">
-                                    <div class="offer-snippet__content">
+            @if (Model.Items.Any()) {
+                <div class="offers">
+                    <h1 class="offers__title">Мои объявления</h1>
+                    <ul class="listing">
+                        @foreach (var item in Model.Items) {
+                            <li class="listing__item">
+                                <div class="offer-snippet">
+                                    <div class="offer-snippet-gallery">
                                         @if (item.Type == OfferTypeEnum.Donor) {
-                                            <h3>Донор крови</h3>
+                                            <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                         } else {
-                                            <h3>Реципиенту требуется донор</h3>
+                                            <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                         }
-
-                                        <p class="offers__field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
-                                        <p class="offers__field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
-                                        <p class="offers__field">@item.Offer.Description</p>
                                     </div>
-                                    <div class="offer-snippet__footer">
-                                        <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
-                                        <div class="offers__link-box">
-                                            <div class="offers__link-box__item">
-                                                <a href="/item/@item.Id/">Открыть</a>
-                                                <span>&nbsp;/&nbsp;</span>
-                                                <a href="/additem/@item.Id/">Редактировать</a>
-                                            </div>
-                                            <div class="offers__link-box__item" id="box-@item.Id">
-                                                @if (item.State == OfferStateEnum.Deleted) {
-                                                    <span class="offers__link-box__link publish" data-id="@item.Id">Опубликовать объявление</span>
-                                                } else if (item.State == OfferStateEnum.Published) {
-                                                    <span class="offers__link-box__link delete" data-id="@item.Id">Снять объявление</span>
-                                                }
+
+                                    <div class="offer-snippet__content-box">
+                                        <div class="offer-snippet__content">
+                                            @if (item.Type == OfferTypeEnum.Donor) {
+                                                <h3>Донор крови</h3>
+                                            } else {
+                                                <h3>Реципиенту требуется донор</h3>
+                                            }
+
+                                            <p class="offers__field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
+                                            <p class="offers__field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
+                                            <p class="offers__field">@item.Offer.Description</p>
+                                        </div>
+                                        <div class="offer-snippet__footer">
+                                            <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
+                                            <div class="offers__link-box">
+                                                <div class="offers__link-box__item">
+                                                    <a href="/item/@item.Id/">Открыть</a>
+                                                    <span>&nbsp;/&nbsp;</span>
+                                                    <a href="/additem/@item.Id/">Редактировать</a>
+                                                </div>
+                                                <div class="offers__link-box__item" id="box-@item.Id">
+                                                    @if (item.State == OfferStateEnum.Deleted) {
+                                                        <span class="offers__link-box__link publish" data-id="@item.Id">Опубликовать объявление</span>
+                                                    } else if (item.State == OfferStateEnum.Published) {
+                                                        <span class="offers__link-box__link delete" data-id="@item.Id">Снять объявление</span>
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    }
-                </ul>
-            </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
         </div>
     </main>
 
-    @Html.Partial("_Footer")
+    @Html.Partial("_Footer", Model.Items.Count < 2)
 
     <script>
         $(function () {

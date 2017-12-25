@@ -1,4 +1,6 @@
-﻿<footer class="footer">
+﻿@model bool
+
+<footer class="footer" @(Model ? Html.Raw("style=\"bottom: 0\"") : Html.Raw(""))>
     <div class="main-page__content">
         <div class="footer__content">
             <div class="footer__col">

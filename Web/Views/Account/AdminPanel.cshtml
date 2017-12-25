@@ -22,54 +22,55 @@
     <main>
         <div class="wrap">
             <div class="offers">
-                <h1 class="offers__title">@Model.TotalCount не проверенных объявлений</h1>
-                <ul class="listing">
-                    @foreach (var item in Model.Items) {
-                        <li class="listing__item">
-                            <div class="offer-snippet">
-                                <div class="offer-snippet-gallery">
-                                    @if (item.Type == OfferTypeEnum.Donor) {
-                                        <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
-                                    } else {
-                                        <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
-                                    }
-                                </div>
-
-                                <div class="offer-snippet__content-box">
-                                    <div class="offer-snippet__content">
+                <h1 class="offers__title">@Model.TotalCount новых объявлений</h1>
+                @if (Model.Items.Any()) {
+                    <ul class="listing">
+                        @foreach (var item in Model.Items) {
+                            <li class="listing__item">
+                                <div class="offer-snippet">
+                                    <div class="offer-snippet-gallery">
                                         @if (item.Type == OfferTypeEnum.Donor) {
-                                            <h3>Донор крови</h3>
+                                            <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                         } else {
-                                            <h3>Реципиенту требуется донор</h3>
+                                            <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                         }
-
-                                        <p class="offers__field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
-                                        <p class="offers__field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
-                                        <p class="offers__field">@item.Offer.Description</p>
                                     </div>
-                                    <div class="offer-snippet__footer">
-                                        <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
-                                        <div class="offers__link-box">
-                                            <div class="offers__link-box__item">
-                                                <a href="/item/@item.Id/">Открыть</a>
-                                            </div>
-                                            <div class="offers__link-box__item" id="box-@item.Id">
-                                                <span class="offers__link-box__link publish" data-id="@item.Id">Подтвердить объявление</span>
-                                                <span>&nbsp;/&nbsp;</span>
-                                                <span class="offers__link-box__link delete" data-id="@item.Id">Снять объявление</span>
+                                    <div class="offer-snippet__content-box">
+                                        <div class="offer-snippet__content">
+                                            @if (item.Type == OfferTypeEnum.Donor) {
+                                                <h3>Донор крови</h3>
+                                            } else {
+                                                <h3>Реципиенту требуется донор</h3>
+                                            }
+
+                                            <p class="offers__field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
+                                            <p class="offers__field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
+                                            <p class="offers__field">@item.Offer.Description</p>
+                                        </div>
+                                        <div class="offer-snippet__footer">
+                                            <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
+                                            <div class="offers__link-box">
+                                                <div class="offers__link-box__item">
+                                                    <a href="/item/@item.Id/">Открыть</a>
+                                                </div>
+                                                <div class="offers__link-box__item" id="box-@item.Id">
+                                                    <span class="offers__link-box__link publish" data-id="@item.Id">Подтвердить объявление</span>
+                                                    <span>&nbsp;/&nbsp;</span>
+                                                    <span class="offers__link-box__link delete" data-id="@item.Id">Снять объявление</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    }
-                </ul>
+                            </li>
+                        }
+                    </ul>
+                }
             </div>
         </div>
     </main>
 
-    @Html.Partial("_Footer")
+    @Html.Partial("_Footer", Model.Items.Count < 3)
 
     <script>
         $(function () {
