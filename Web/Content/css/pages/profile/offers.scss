@@ -9,14 +9,19 @@
         margin-top: 15px;
     }
 
+    &__field-address {
+        margin-top: -0.5rem;
+    }
+
     &__link-box {
-        padding-top: 0.5rem;
+        padding-top: 1rem;
         display: flex;
         justify-content: space-between;
 
         a {
             text-decoration: none;
             color: $red;
+            font-weight: bold;
         }
 
         &__item {
@@ -27,6 +32,7 @@
             text-decoration: none;
             cursor: pointer;
             color: $red;
+            font-weight: bold;
         }
     }
 }

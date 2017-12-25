@@ -1,6 +1,7 @@
-﻿@using Web.Models.SearchItems
-@using BloodSearch.Models.Api.Models.Offers;
+﻿@using BloodSearch.Models.Api.Models.Offers;
 @using BloodSearch.Core.Extensions;
+@using BloodSearch.Core.Utils;
+@using Web.Models.SearchItems
 
 @model SearchItemsIndexResponse
 
@@ -24,9 +25,10 @@
         <div class="wrap">
             <div class="search">
                 @if (Model.TotalCount != 0) {
-                <h1>Всего найдено @Model.TotalCount объявления</h1>
+                    var word = CommonUtils.Declension((int)Model.TotalCount, "объявление", "объявления", "объявлений");
+                    <h1>Всего найдено @Model.TotalCount @word</h1>
                 } else {
-                <h1>По вашему запросу ничего не найдено</h1>
+                    <h1>По вашему запросу ничего не найдено</h1>
                 }
             </div>
 
@@ -157,57 +159,48 @@
             </div>
 
             @if (Model.Items.Any()) {
-            <div>
                 <ul class="listing">
                     @foreach (var item in Model.Items) {
-                    <li class="listing__item">
-                        <a href="/item/@item.Id" class="offer-snippet">
-                            <div class="offer-snippet-gallery">
-                                @if (item.Type == OfferTypeEnum.Donor) {
-                                <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
-                                } else {
-                                <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
-                                }
-                            </div>
-
-                            <div class="offer-snippet__content-box">
-                                <div class="offer-snippet__content">
+                        <li class="listing__item">
+                            <a href="/item/@item.Id" class="offer-snippet">
+                                <div class="offer-snippet-gallery">
                                     @if (item.Type == OfferTypeEnum.Donor) {
-                                    <h3>Донор крови</h3>
+                                        <img src="~/Content/img/donor.jpg" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                     } else {
-                                    <h3>Реципиенту требуется донор</h3>
+                                        <img src="~/Content/img/recipient.jpg" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                     }
-                                    <p class="field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
-                                    <p class="field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
-                                    <p class="field">@item.Offer.Description</p>
                                 </div>
-                                <div class="offer-snippet__footer">
-                                    <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
+                                <div class="offer-snippet__content-box">
+                                    <div class="offer-snippet__content">
+                                        @if (item.Type == OfferTypeEnum.Donor) {
+                                            <h2>Донор крови</h2>
+                                        } else {
+                                            <h2>Реципиент крови</h2>
+                                        }
+                                        <p class="offer-snippet__field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
+                                        <p class="offer-snippet__field">Дата создания объявления: <span>@item.CreatedDate.ToLongDateString()</span></p>
+                                        <p class="offer-snippet__field">Описание: <span>@item.Offer.Description.CropStringWord(200, true, 210)</span></p>
+                                    </div>
+                                    <div class="offer-snippet__footer">
+                                        <p class="offer-snippet__field">Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
                     }
                 </ul>
-            </div>
             }
 
             @if (Model.TotalCount > 10 && Model.PagingFilter.MaxPageNumber > 1) {
-            <div class="frame">
-                @Html.Partial("_PaginationPartial", Model)
-            </div>
+                <div class="frame">
+                    @Html.Partial("_PaginationPartial", Model)
+                </div>
             }
 
         </div>
     </main>
 
     @Html.Partial("_Footer", Model.Items.Count < 2)
-
-    <style>
-        .field {
-            margin-top: 15px;
-        }
-    </style>
 
     <script>
         $(function () {

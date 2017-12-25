@@ -812,7 +812,6 @@ select {
   .offer-snippet__content-box {
     display: flex;
     flex-direction: column;
-    /*overflow: hidden;*/
     width: 100%; }
   .offer-snippet__content {
     position: relative;
@@ -821,6 +820,11 @@ select {
     @media only screen and (max-width: 1130px) {
       .offer-snippet__content {
         padding: 2rem 2rem 1.5rem; } }
+  .offer-snippet__field {
+    margin-top: 1rem;
+    font-weight: bold; }
+    .offer-snippet__field span {
+      font-weight: normal; }
   .offer-snippet__footer {
     border-top: 0.1rem solid #ebebeb;
     padding: 2rem 5.9rem 1.5rem 3rem;
@@ -1047,17 +1051,22 @@ select {
 .offers__field {
   margin-top: 15px; }
 
+.offers__field-address {
+  margin-top: -0.5rem; }
+
 .offers__link-box {
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: space-between; }
   .offers__link-box a {
     text-decoration: none;
-    color: #ee2d24; }
+    color: #ee2d24;
+    font-weight: bold; }
   .offers__link-box__item {
     display: flex; }
   .offers__link-box__link {
     text-decoration: none;
     cursor: pointer;
-    color: #ee2d24; }
+    color: #ee2d24;
+    font-weight: bold; }
 

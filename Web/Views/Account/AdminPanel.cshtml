@@ -1,6 +1,7 @@
 ﻿@using Web.Models.Account
 @using BloodSearch.Models.Api.Models.Offers;
 @using BloodSearch.Core.Extensions;
+@using BloodSearch.Core.Utils;
 
 @model AdminPanelResponse
 
@@ -22,7 +23,11 @@
     <main>
         <div class="wrap">
             <div class="offers">
-                <h1 class="offers__title">@Model.TotalCount новых объявлений</h1>
+                @{
+                    var word = CommonUtils.Declension((int)Model.TotalCount, "объявление", "объявления", "объявлений");
+                    <h1 class="offers__title">@Model.TotalCount новых @word</h1>
+                }
+
                 @if (Model.Items.Any()) {
                     <ul class="listing">
                         @foreach (var item in Model.Items) {
@@ -30,28 +35,27 @@
                                 <div class="offer-snippet">
                                     <div class="offer-snippet-gallery">
                                         @if (item.Type == OfferTypeEnum.Donor) {
-                                            <img src="~/Content/img/donor.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                            <img src="~/Content/img/donor.jpg" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                         } else {
-                                            <img src="~/Content/img/recipient.jpg" alt="" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
+                                            <img src="~/Content/img/recipient.jpg" class="offer-snippet-gallery__img" style="width:225px; height: 225px;">
                                         }
                                     </div>
                                     <div class="offer-snippet__content-box">
                                         <div class="offer-snippet__content">
                                             @if (item.Type == OfferTypeEnum.Donor) {
-                                                <h3>Донор крови</h3>
+                                                <h2>Донор крови</h2>
                                             } else {
-                                                <h3>Реципиенту требуется донор</h3>
+                                                <h2>Реципиент крови</h2>
                                             }
-
-                                            <p class="offers__field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
-                                            <p class="offers__field">Дата обращения: <span>@item.CreatedDate.ToLongDateString()</span></p>
-                                            <p class="offers__field">@item.Offer.Description</p>
+                                            <p class="offer-snippet__field">Категория крови: <span>@item.Offer.Category.ToEnumString()</span></p>
+                                            <p class="offer-snippet__field">Дата создания объявления: <span>@item.CreatedDate.ToLongDateString()</span></p>
+                                            <p class="offer-snippet__field">Описание: <span>@item.Offer.Description.CropStringWord(200, true, 210)</span></p>
                                         </div>
                                         <div class="offer-snippet__footer">
-                                            <p>Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
+                                            <p class="offer-snippet__field offers__field-address">Адрес: <span>@item.Offer.GeoAddress.Address</span></p>
                                             <div class="offers__link-box">
                                                 <div class="offers__link-box__item">
-                                                    <a href="/item/@item.Id/">Открыть</a>
+                                                    <a href="/item/@item.Id/" target="_blank">Открыть</a>
                                                 </div>
                                                 <div class="offers__link-box__item" id="box-@item.Id">
                                                     <span class="offers__link-box__link publish" data-id="@item.Id">Подтвердить объявление</span>

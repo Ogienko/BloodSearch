@@ -13,7 +13,6 @@
     &__content-box {
         display: flex;
         flex-direction: column;
-        /*overflow: hidden;*/
         width: 100%;
     }
 
@@ -24,6 +23,15 @@
 
         @media only screen and (max-width: 1130px) {
             padding: 2rem 2rem 1.5rem;
+        }
+    }
+
+    &__field {
+        margin-top: 1rem;
+        font-weight: bold;
+
+        span {
+            font-weight: normal;
         }
     }
 
