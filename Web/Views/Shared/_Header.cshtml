@@ -32,8 +32,12 @@
             </div>
             <div class="main-header__item header-nav">
                 @if (User.IsAuthorized) {
-                    <a class="header-nav__item header-nav__item--black pseudo" href="/additem/">Создать объявление</a>
-                    <a class="header-nav__item header-nav__item--black pseudo" href="/profile/" >Профиль</a>
+                    if (User.IsAdmin) {
+                        <a class="header-nav__item header-nav__item--black pseudo" href="/adminpanel/">Панель администратора</a>
+                    } else {
+                        <a class="header-nav__item header-nav__item--black pseudo" href="/additem/">Создать объявление</a>
+                        <a class="header-nav__item header-nav__item--black pseudo" href="/profile/">Профиль</a>
+                    }
                     <a class="header-nav__item header-nav__item--black pseudo" href="/logout/">Выйти</a>
                 } else {
                     <a class="header-nav__item header-nav__item--black pseudo" href="/login/">Войти</a>

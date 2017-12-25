@@ -1,10 +1,9 @@
 ﻿using BloodSearch.Core.Models;
 using BloodSearch.Models.Api;
 using BloodSearch.Models.Api.Models.Auth.Request;
-using System.Collections.Generic;
+using System;
 using System.Web;
 using Web.Models.Account;
-using static Web.Infrastructure.Authorization.MembershipService;
 
 namespace Web.Infrastructure.Authorization {
 
@@ -30,7 +29,9 @@ namespace Web.Infrastructure.Authorization {
 
         public string Phone { get; set; }
 
-        public bool IsAuthorized => !string.IsNullOrWhiteSpace(Email);
+        public bool IsAuthorized => !String.IsNullOrWhiteSpace(Email);
+
+        public bool IsAdmin => !String.IsNullOrWhiteSpace(Email) && Email == "admin@admin.com";
 
         public BaseResponse UpdateProfileInfo(ProfileViewModel request) {
 

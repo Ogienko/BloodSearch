@@ -1047,9 +1047,17 @@ select {
 .offers__field {
   margin-top: 15px; }
 
-.offers__link {
-  padding-top: 0.5rem; }
-  .offers__link a {
+.offers__link-box {
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: space-between; }
+  .offers__link-box a {
     text-decoration: none;
+    color: #ee2d24; }
+  .offers__link-box__item {
+    display: flex; }
+  .offers__link-box__link {
+    text-decoration: none;
+    cursor: pointer;
     color: #ee2d24; }
 

@@ -1,12 +1,9 @@
-﻿using BloodSearch.Filter.Models.Offers;
-using BloodSearch.Models.Api.Models.Offers.Requests;
+﻿using BloodSearch.Models.Api.Models.Offers.Requests;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Web;
 
-namespace Web.Models.SearchItems {
+namespace Web.Models.Account {
 
-    public class ProfileIndexResponse {
+    public class ProfileResponse {
 
         public string Email { get; set; }
 

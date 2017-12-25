@@ -32,6 +32,10 @@
                         }
                     </div>
 
+                    @if (Model.State == OfferStateEnum.Deleted) {
+                        <h2>Объявление снято с публикации</h2>
+                    }
+
                     <div class="">
                         <p>Вес: @Model.Offer.Weight</p>
                     </div>

@@ -181,10 +181,11 @@
     <Compile Include="Infrastructure\Authorization\MembershipService.cs" />
     <Compile Include="Infrastructure\Authorization\WebAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\Authorization\WebUser.cs" />
+    <Compile Include="Models\Account\AdminPanelResponse.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\ProfileViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
-    <Compile Include="Models\Account\ProfileIndexResponse.cs" />
+    <Compile Include="Models\Account\ProfileResponse.cs" />
     <Compile Include="Models\AddItemRequest.cs" />
     <Compile Include="Models\Item\ItemModel.cs" />
     <Compile Include="Models\SearchItems\SearchItemsIndexResponse.cs" />
@@ -313,6 +314,7 @@
     <Content Include="Content\css\pages\profile\profile.scss" />
     <Content Include="Content\css\pages\profile\personal-information.scss" />
     <Content Include="Content\css\pages\profile\offers.scss" />
+    <None Include="Properties\PublishProfiles\BloodSearch - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.min.js" />
@@ -392,6 +394,7 @@
     <Content Include="Views\StaticContent\Stations.cshtml" />
     <Content Include="Views\AddItem\Index.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\AdminPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

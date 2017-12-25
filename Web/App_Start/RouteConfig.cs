@@ -81,6 +81,16 @@ namespace Web {
             );
 
             routes.MapRoute(
+                name: "AdminPanel",
+                url: "adminpanel/",
+                defaults: new {
+                    controller = "Account",
+                    action = "AdminPanel",
+                    httpMethod = new HttpMethodConstraint("GET")
+                }
+            );
+
+            routes.MapRoute(
                 name: "Stations",
                 url: "stations/",
                 defaults: new {

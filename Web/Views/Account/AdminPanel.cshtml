@@ -2,7 +2,7 @@
 @using BloodSearch.Models.Api.Models.Offers;
 @using BloodSearch.Core.Extensions;
 
-@model ProfileResponse
+@model AdminPanelResponse
 
 @{
     Layout = null;
@@ -13,37 +13,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Профиль — BloodSearch.com</title>
+    <title>Панель администратора — BloodSearch.com</title>
     <link rel="stylesheet" href="/content/css/styles.css" type="text/css" media="screen, projection" />
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-    @Scripts.Render("~/bundles/inputmask")
 </head>
 <body>
     @Html.Partial("_Header", 0)
     <main>
         <div class="wrap">
-            <div class="personal-information">
-                <h1 class="personal-information__title">Личная информация</h1>
-                <form id="personal-information-form">
-                    <div class="personal-information-error"></div>
-                    <div class="personal-information__field">
-                        <label for="Email">Ваш адрес электронной почты:</label>
-                        <input type="text" name="Email" value="@Model.Email" placeholder="Адрес электронной почты" disabled />
-                    </div>
-                    <div class="personal-information__field">
-                        <label for="Name">Ваше имя:</label>
-                        <input type="text" name="Name" value="@Model.Name" placeholder="Имя" />
-                    </div>
-                    <div class="personal-information__field">
-                        <label for="Phone">Ваш телефон:</label>
-                        <input type="tel" name="Phone" value="@Model.Phone" data-inputmask="'mask': '+7 (999) 999-99-99'" placeholder="Телефон" />
-                    </div>
-                    <input type="submit" class="btn btn--red personal-information__btn" value="Сохранить" />
-                </form>
-            </div>
-
             <div class="offers">
-                <h1 class="offers__title">Мои объявления</h1>
+                <h1 class="offers__title">@Model.TotalCount не проверенных объявлений</h1>
                 <ul class="listing">
                     @foreach (var item in Model.Items) {
                         <li class="listing__item">
@@ -73,15 +52,11 @@
                                         <div class="offers__link-box">
                                             <div class="offers__link-box__item">
                                                 <a href="/item/@item.Id/">Открыть</a>
-                                                <span>&nbsp;/&nbsp;</span>
-                                                <a href="/additem/@item.Id/">Редактировать</a>
                                             </div>
                                             <div class="offers__link-box__item" id="box-@item.Id">
-                                                @if (item.State == OfferStateEnum.Deleted) {
-                                                    <span class="offers__link-box__link publish" data-id="@item.Id">Опубликовать объявление</span>
-                                                } else if (item.State == OfferStateEnum.Published) {
-                                                    <span class="offers__link-box__link delete" data-id="@item.Id">Снять объявление</span>
-                                                }
+                                                <span class="offers__link-box__link publish" data-id="@item.Id">Подтвердить объявление</span>
+                                                <span>&nbsp;/&nbsp;</span>
+                                                <span class="offers__link-box__link delete" data-id="@item.Id">Снять объявление</span>
                                             </div>
                                         </div>
                                     </div>
@@ -98,34 +73,11 @@
 
     <script>
         $(function () {
-            $('#personal-information-form').submit(function (event) {
-                event.preventDefault();
-
-                var name = $("input[name='Name']").val();
-                var phone = $("input[name='Phone']").val();
-
-                if (!name || !phone) {
-                    $('.personal-information-error').html('<p class="registration__field-error">Поля не могут быть пустыми</p>');
-                    return;
-                }
-
-                var data = {
-                    Name: name,
-                    Phone: phone
-                }
-
-                $.post('/api/account/profile/save/', data, function (result) {
-                    if (!result.success && result['err-messages']) {
-                        $('.personal-information-error').html('<p class="registration__field-error">Не удалось обновить данные профиля</p>');
-                    }
-                });
-            });
-
             $('.publish').click(function () {
                 var id = $(this).attr('data-id');
                 $.get('/api/account/publishitem?offerId=' + id, function (result) {
                     if (result.success) {
-                        $('#box-' + id).html('<span class="offers__link-box__link delete" data-id="' + id + '">Снять объявление</span>');
+                        $('#box-' + id).html('<span>Объявление подтверждено</span>');
                     }
                     else {
                         $('#box-' + id).html('<span>Не удалось подтвердить объявление</span>');
@@ -138,7 +90,7 @@
                 var id = $(this).attr('data-id');
                 $.get('/api/account/deleteitem?offerId=' + id, function (result) {
                     if (result.success) {
-                        $('#box-' + id).html('<span class="offers__link-box__link publish" data-id="' + id + '">Опубликовать объявление</span>');
+                        $('#box-' + id).html('<span>Объявление снято с публикации</span>');
                     }
                     else {
                         $('#box-' + id).html('<span>Не удалось снять объявление с публикации</span>');

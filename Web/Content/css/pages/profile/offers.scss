@@ -9,11 +9,23 @@
         margin-top: 15px;
     }
 
-    &__link {
+    &__link-box {
         padding-top: 0.5rem;
+        display: flex;
+        justify-content: space-between;
 
         a {
             text-decoration: none;
+            color: $red;
+        }
+
+        &__item {
+            display: flex;
+        }
+
+        &__link {
+            text-decoration: none;
+            cursor: pointer;
             color: $red;
         }
     }
