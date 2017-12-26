@@ -94,7 +94,7 @@
         </div>
     </main>
 
-    @Html.Partial("_Footer", Model.Items.Count < 2)
+    @Html.Partial("_Footer", !Model.Items.Any())
 
     <script>
         $(function () {
